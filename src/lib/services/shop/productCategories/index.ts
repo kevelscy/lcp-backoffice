@@ -4,9 +4,7 @@ import { IProductCategoryToCreate, IProductCategoryToUpdate, IReturnProductCateg
 const { API } = config
 
 export const getAllProductsCategories= async (): Promise<IReturnProductCategories> => {
-  const URL = `${ API.URL }/api/shop/product-categories`
-
-  const res = await fetch(URL)
+  const res = await fetch('/api/shop/product-categories')
   const { data, error } = await res.json()
 
   if (error) {
@@ -23,9 +21,7 @@ export const getAllProductsCategories= async (): Promise<IReturnProductCategorie
 }
 
 export const getProductCategoryById = async (id: string): Promise<IReturnProductCategory> => {
-  const URL = `${ API.URL }/api/shop/product-categories/${id}`
-
-  const res = await fetch(URL)
+  const res = await fetch(`/api/shop/product-categories/${id}`)
   const { data, error } = await res.json()
 
   if (error) {
@@ -42,14 +38,13 @@ export const getProductCategoryById = async (id: string): Promise<IReturnProduct
 }
 
 export const createProductCategory = async (productCategory: IProductCategoryToCreate): Promise<IReturnProductCategory> => {
-  const URL = `${ API.URL }/api/shop/product-categories`
   const options: RequestInit = {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({ ...productCategory })
   }
 
-  const res = await fetch(URL, options)
+  const res = await fetch('/api/shop/product-categories', options)
   const { data, error } = await res.json()
 
   if (error) {
@@ -66,14 +61,13 @@ export const createProductCategory = async (productCategory: IProductCategoryToC
 }
 
 export const updateProductCategoryById = async (id: string, productCategory: IProductCategoryToUpdate): Promise<IReturnProductCategory> => {
-  const URL = `${ API.URL }/api/shop/product-categories/${id}`
   const options: RequestInit = {
     method: 'PUT',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({ ...productCategory })
   }
 
-  const res = await fetch(URL, options)
+  const res = await fetch(`/api/shop/product-categories/${id}`, options)
   const { data, error } = await res.json()
 
   if (error) {
@@ -90,10 +84,9 @@ export const updateProductCategoryById = async (id: string, productCategory: IPr
 }
 
 export const deleteProductCategoryById = async (id: string): Promise<IReturnProductCategory> => {
-  const URL = `${ API.URL }/api/shop/product-categories/${id}`
   const options: RequestInit = { method: 'DELETE' }
 
-  const res = await fetch(URL, options)
+  const res = await fetch(`/api/shop/product-categories/${id}`, options)
   const { data, error } = await res.json()
 
   if (error) {

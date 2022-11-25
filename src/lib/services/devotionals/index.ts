@@ -4,9 +4,7 @@ import { IDevotionalToCreate, IDevotionalToUpdate, IReturnDevotional, IReturnDev
 const { API } = config
 
 export const getAllDevotionals = async (): Promise<IReturnDevotionals> => {
-  const URL = `${ API.URL }/api/devotionals`
-
-  const res = await fetch(URL)
+  const res = await fetch('/api/devotionals')
   const { data, error } = await res.json()
 
   if (error) {
@@ -23,9 +21,7 @@ export const getAllDevotionals = async (): Promise<IReturnDevotionals> => {
 }
 
 export const getDevotionalsById = async (id: string): Promise<IReturnDevotional> => {
-  const URL = `${ API.URL }/api/devotionals/${id}`
-
-  const res = await fetch(URL)
+  const res = await fetch(`/api/devotionals/${id}`)
   const { data, error } = await res.json()
 
   if (error) {
@@ -42,8 +38,6 @@ export const getDevotionalsById = async (id: string): Promise<IReturnDevotional>
 }
 
 export const createDevotional = async (devotional: IDevotionalToCreate): Promise<IReturnDevotional> => {
-  const URL = `${ API.URL }/api/devotionals`
-
   const formData = new FormData()
   const entries = Object.entries(devotional)
 
@@ -57,7 +51,7 @@ export const createDevotional = async (devotional: IDevotionalToCreate): Promise
 
   const options: RequestInit = { method: 'POST', body: formData }
 
-  const res = await fetch(URL, options)
+  const res = await fetch('/api/devotionals', options)
   const { data, error } = await res.json()
 
   if (error) {
@@ -74,10 +68,9 @@ export const createDevotional = async (devotional: IDevotionalToCreate): Promise
 }
 
 export const updateDevotionalById = async (id: string, devotional: IDevotionalToUpdate): Promise<IReturnDevotional> => {
-  const URL = `${ API.URL }/api/devotionals/${id}`
   const options: RequestInit = { method: 'POST', body: JSON.stringify(devotional) }
 
-  const res = await fetch(URL, options)
+  const res = await fetch(`/api/devotionals/${id}`, options)
   const { data, error } = await res.json()
 
   if (error) {
@@ -94,10 +87,9 @@ export const updateDevotionalById = async (id: string, devotional: IDevotionalTo
 }
 
 export const deleteDevotionalById = async (id: string): Promise<IReturnDevotional> => {
-  const URL = `${ API.URL }/api/devotionals/${id}`
   const options: RequestInit = { method: 'DELETE' }
 
-  const res = await fetch(URL, options)
+  const res = await fetch(`/api/devotionals/${id}`, options)
   const { data, error } = await res.json()
 
   if (error) {

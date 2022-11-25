@@ -4,9 +4,7 @@ import { IArticleToCreate, IArticleToUpdate, IReturnArticle, IReturnArticles } f
 const { API } = config
 
 export const getAllPosts = async (): Promise<IReturnArticles> => {
-  const URL = `${ API.URL }/api/posts`
-
-  const res = await fetch(URL)
+  const res = await fetch('/api/posts')
   const { data, error } = await res.json()
 
   if (error) {
@@ -23,9 +21,7 @@ export const getAllPosts = async (): Promise<IReturnArticles> => {
 }
 
 export const getPostById = async (id: string): Promise<IReturnArticle> => {
-  const URL = `${ API.URL }/api/posts/${id}`
-
-  const res = await fetch(URL)
+  const res = await fetch(`/api/posts/${id}`)
   const { data, error } = await res.json()
 
   if (error) {
@@ -42,8 +38,6 @@ export const getPostById = async (id: string): Promise<IReturnArticle> => {
 }
 
 export const createPost = async (post: IArticleToCreate): Promise<IReturnArticle> => {
-  const URL = `${ API.URL }/api/posts`
-
   const formData = new FormData()
   const entries = Object.entries(post)
 
@@ -57,7 +51,7 @@ export const createPost = async (post: IArticleToCreate): Promise<IReturnArticle
 
   const options: RequestInit = { method: 'POST', body: formData }
 
-  const res = await fetch(URL, options)
+  const res = await fetch('/api/posts', options)
   const { data, error } = await res.json()
 
   if (error) {
@@ -74,8 +68,6 @@ export const createPost = async (post: IArticleToCreate): Promise<IReturnArticle
 }
 
 export const updatePostById = async (id: string, post: IArticleToUpdate): Promise<IReturnArticle> => {
-  const URL = `${ API.URL }/api/posts/${id}`
-
   const formData = new FormData()
   const entries = Object.entries(post)
 
@@ -89,7 +81,7 @@ export const updatePostById = async (id: string, post: IArticleToUpdate): Promis
 
   const options: RequestInit = { method: 'PUT', body: formData }
 
-  const res = await fetch(URL, options)
+  const res = await fetch(`/api/posts/${id}`, options)
   const { data, error } = await res.json()
 
   if (error) {
@@ -106,10 +98,9 @@ export const updatePostById = async (id: string, post: IArticleToUpdate): Promis
 }
 
 export const deletePostById = async (id: string): Promise<IReturnArticle> => {
-  const URL = `${ API.URL }/api/posts/${id}`
   const options: RequestInit = { method: 'DELETE' }
 
-  const res = await fetch(URL, options)
+  const res = await fetch(`/api/posts/${id}`, options)
   const { data, error } = await res.json()
 
   if (error) {

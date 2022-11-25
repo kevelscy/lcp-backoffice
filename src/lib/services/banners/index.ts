@@ -4,9 +4,7 @@ import { IBannerToCreate, IBannerToUpdate, IReturnBanner, IReturnBanners } from 
 const { API } = config
 
 export const getAllBanners = async (): Promise<IReturnBanners> => {
-  const URL = `${ API.URL }/api/banners`
-
-  const res = await fetch(URL)
+  const res = await fetch('/api/banners')
   const { data, error } = await res.json()
 
   if (error) {
@@ -23,9 +21,7 @@ export const getAllBanners = async (): Promise<IReturnBanners> => {
 }
 
 export const getBannerById = async (id: string): Promise<IReturnBanner> => {
-  const URL = `${ API.URL }/api/banners/${id}`
-
-  const res = await fetch(URL)
+  const res = await fetch(`/api/banners/${id}`)
   const { data, error } = await res.json()
 
   if (error) {
@@ -42,8 +38,6 @@ export const getBannerById = async (id: string): Promise<IReturnBanner> => {
 }
 
 export const createBanner = async (banner: IBannerToCreate): Promise<IReturnBanner> => {
-  const URL = `${ API.URL }/api/banners`
-
   const formData = new FormData()
   const entries = Object.entries(banner)
 
@@ -57,7 +51,7 @@ export const createBanner = async (banner: IBannerToCreate): Promise<IReturnBann
 
   const options: RequestInit = { method: 'POST', body: formData }
 
-  const res = await fetch(URL, options)
+  const res = await fetch('/api/banners', options)
   const { data, error } = await res.json()
 
   if (error) {
@@ -74,8 +68,6 @@ export const createBanner = async (banner: IBannerToCreate): Promise<IReturnBann
 }
 
 export const updateBannerById = async (id: string, banner: IBannerToUpdate): Promise<IReturnBanner> => {
-  const URL = `${ API.URL }/api/banners/${id}`
-
   const formData = new FormData()
   const entries = Object.entries(banner)
 
@@ -89,7 +81,7 @@ export const updateBannerById = async (id: string, banner: IBannerToUpdate): Pro
 
   const options: RequestInit = { method: 'PUT', body: formData }
 
-  const res = await fetch(URL, options)
+  const res = await fetch(`/api/banners/${id}`, options)
   const { data, error } = await res.json()
 
   if (error) {
@@ -106,10 +98,9 @@ export const updateBannerById = async (id: string, banner: IBannerToUpdate): Pro
 }
 
 export const deleteBannerById = async (id: string): Promise<IReturnBanner> => {
-  const URL = `${ API.URL }/api/banners/${id}`
   const options: RequestInit = { method: 'DELETE' }
 
-  const res = await fetch(URL, options)
+  const res = await fetch(`/api/banners/${id}`, options)
   const { data, error } = await res.json()
 
   if (error) {

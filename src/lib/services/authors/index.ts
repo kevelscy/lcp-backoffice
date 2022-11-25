@@ -1,12 +1,7 @@
-import { config } from 'config'
 import { IReturnAuthors, IReturnAuthor } from 'lib/types'
 
-const { API } = config
-
 export const getAllAuthors = async (): Promise<IReturnAuthors> => {
-  const URL = `${ API.URL }/api/authors`
-
-  const res = await fetch(URL)
+  const res = await fetch('/api/authors')
   const { data, error } = await res.json()
 
   if (error) {
@@ -23,9 +18,7 @@ export const getAllAuthors = async (): Promise<IReturnAuthors> => {
 }
 
 export const getAuthorById = async (id: string): Promise<IReturnAuthor> => {
-  const URL = `${ API.URL }/api/authors/${id}`
-
-  const res = await fetch(URL)
+  const res = await fetch(`/api/authors/${id}`)
   const { data, error } = await res.json()
 
   if (error) {
@@ -42,10 +35,9 @@ export const getAuthorById = async (id: string): Promise<IReturnAuthor> => {
 }
 
 export const upgradeUserToAuthor = async (userId: string): Promise<IReturnAuthors> => {
-  const URL = `${ API.URL }/api/authors/${userId}`
   const options: RequestInit = { method: 'POST' }
 
-  const res = await fetch(URL, options)
+  const res = await fetch(`/api/authors/${userId}`, options)
   const { data, error } = await res.json()
 
   if (error) {

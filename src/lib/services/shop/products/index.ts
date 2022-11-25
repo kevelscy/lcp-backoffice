@@ -4,9 +4,7 @@ import { IProductToCreate, IProductToUpdate, IFetchReturn, IReturnProducts, IRet
 const { API } = config
 
 export const getAllProducts = async (): Promise<IReturnProducts> => {
-  const URL = `${ API.URL }/api/shop/products`
-
-  const res = await fetch(URL)
+  const res = await fetch('/api/shop/products')
   const { data, error } = await res.json()
 
   if (error) {
@@ -23,9 +21,7 @@ export const getAllProducts = async (): Promise<IReturnProducts> => {
 }
 
 export const getProductById = async (id: string): Promise<IReturnProduct> => {
-  const URL = `${ API.URL }/api/shop/products/${id}`
-
-  const res = await fetch(URL)
+  const res = await fetch(`/api/shop/products/${id}`)
   const { data, error } = await res.json()
 
   if (error) {
@@ -42,8 +38,6 @@ export const getProductById = async (id: string): Promise<IReturnProduct> => {
 }
 
 export const createProduct = async (product: IProductToCreate): Promise<IReturnProduct> => {
-  const URL = `${ API.URL }/api/shop/products`
-
   const formData = new FormData()
   const entries = Object.entries(product)
 
@@ -57,7 +51,7 @@ export const createProduct = async (product: IProductToCreate): Promise<IReturnP
 
   const options: RequestInit = { method: 'POST', body: formData }
 
-  const res = await fetch(URL, options)
+  const res = await fetch('/api/shop/products', options)
   const { data, error } = await res.json()
 
   if (error) {
@@ -74,8 +68,6 @@ export const createProduct = async (product: IProductToCreate): Promise<IReturnP
 }
 
 export const updateProductById = async (id: string, product: IProductToUpdate): Promise<IReturnProduct> => {
-  const URL = `${ API.URL }/api/shop/products/${id}`
-
   const formData = new FormData()
   const entries = Object.entries(product)
 
@@ -89,7 +81,7 @@ export const updateProductById = async (id: string, product: IProductToUpdate): 
 
   const options: RequestInit = { method: 'PUT', body: formData }
 
-  const res = await fetch(URL, options)
+  const res = await fetch(`/api/shop/products/${id}`, options)
   const { data, error } = await res.json()
 
   if (error) {
@@ -106,10 +98,9 @@ export const updateProductById = async (id: string, product: IProductToUpdate): 
 }
 
 export const deleteProductById = async (id: string): Promise<IReturnProduct> => {
-  const URL = `${ API.URL }/api/shop/products/${id}`
   const options: RequestInit = { method: 'DELETE' }
 
-  const res = await fetch(URL, options)
+  const res = await fetch(`/api/shop/products/${id}`, options)
   const { data, error } = await res.json()
 
   if (error) {
