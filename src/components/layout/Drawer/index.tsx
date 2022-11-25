@@ -50,14 +50,7 @@ export const Drawer = () => {
 
         <div className='mt-2 text-center'>
           <span>{ auth.firstName } { auth.lastName }</span> <br />
-
-          {
-            auth.roles.map(role => {
-              if (role.title === 'ADMIN' || role.title === 'MODERATOR') {
-                return <small key={role.id}>{ role.title }</small>
-              }
-            })
-          }
+          <small>LCP Backoffice</small>
         </div>
       </section>
 
