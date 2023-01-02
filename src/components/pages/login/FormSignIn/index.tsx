@@ -11,6 +11,8 @@ import { signIn } from 'lib/services/auth'
 import { handleFetchErrors } from 'lib/utils/handleFetchErrors'
 import { useAuthStore } from 'lib/store/Auth'
 import { setLocalStorage } from 'lib/utils/localStorage'
+import { useMutation } from '@apollo/client'
+import { SIGN_IN_GQL } from 'graphql/auth'
 // import { signIn } from 'lib/services/firebase/utils/auth/signIn'
 
 interface IUserSignIn {
@@ -19,27 +21,33 @@ interface IUserSignIn {
 }
 
 export const FormSignIn = () => {
+  const [signInGQL, { data, loading: gqlLoading, error }] = useMutation(SIGN_IN_GQL, { errorPolicy: 'ignore' })
   const { register, handleSubmit, formState: { errors }, reset } = useForm<IUserSignIn>()
   const [showPassword, setShowPassword] = useState(false)
   const [loading, setLoading] = useState(false)
   const { setAuth } = useAuthStore()
   const router = useRouter()
 
-  const onSubmit: SubmitHandler<IUserSignIn> = async (dataForm: IUserSignIn) => {
-    setLoading(true)
+  const onSubmit: SubmitHandler<IUserSignIn> = async ({ email, password }: IUserSignIn) => {
+    // setLoading(true)
+    const res = await signInGQL({ variables: { email , password } })
+    console.log('signInGQL res', res)
+    console.log('useMutation data', data)
 
-    const { data, error } = await signIn(dataForm.email, dataForm.password)
+    // const { data, error } = await signIn(dataForm.email, dataForm.password)
 
-    if (error) {
-      setLoading(false)
-      handleFetchErrors(error.status, error.message)
-      return
-    }
+    console.log('useMutation error', error)
+
+    // if (error) {
+      // setLoading(false)
+      // handleFetchErrors(error.status, error.message)
+    //   return
+    // }
     
-    setLocalStorage('accessToken', data.accessToken)
+    setLocalStorage('accessToken', data?.signIn?.accessToken)
     reset()
     setAuth(data)
-    setLoading(false)
+    // setLoading(false)
     router.push('/dashboard')
   }
 
@@ -88,14 +96,14 @@ export const FormSignIn = () => {
         <div className='text-center'>
           <Button
             type='submit'
-            disabled={loading}
+            disabled={gqlLoading}
             classes='group relative w-full flex justify-center py-2 hover:bg-opacity-95 disabled:opacity-50 disabled:cursor-wait px-4 border border-transparent text-sm font-medium rounded-md text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-brown-primary-300'
           >
             <span className='absolute inset-y-0 left-0 flex items-center pl-3'>
               <LockClosed aria-hidden='true' />
             </span>
 
-            { loading ? <SpinnerLoader classes='animate-spin h-5 w-5 text-white' /> : 'Iniciar Sesión' }
+            { gqlLoading ? <SpinnerLoader classes='animate-spin h-5 w-5 text-white' /> : 'Iniciar Sesión' }
           </Button>
         </div>
       </form>
