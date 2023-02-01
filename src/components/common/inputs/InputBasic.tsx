@@ -30,7 +30,7 @@ export const InputBasic = ({
 }: IInputBasicProps) => {
   return (
     <div className={`w-full ${containerClasses}`}>
-      <label htmlFor={id}>
+      <label htmlFor={id} className='font-semibold'>
         {label}
       </label>
 
@@ -76,7 +76,7 @@ export const InputSelectBasic = ({
 }: IInputSelectBasicProps) => {
   return (
     <div className={`w-full ${containerClasses}`}>
-      <label htmlFor={id}>
+      <label htmlFor={id} className='font-semibold'>
         {label}
       </label>
 

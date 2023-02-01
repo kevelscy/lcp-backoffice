@@ -5,7 +5,7 @@ import ImageUploading from 'react-images-uploading'
 export const UploadImage = ({ imageToUpload, onChange }) => {
   return (
     <div className='mt-2'>
-      <label className='block font-medium text-gray-700'>Imagen del Banner</label>
+      <label className='block font-semibold text-gray-700'>Imagen del Banner</label>
 
       <ImageUploading
         value={imageToUpload}

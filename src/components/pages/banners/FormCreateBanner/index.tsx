@@ -6,12 +6,12 @@ import { useState } from 'react'
 
 import { handleFetchErrors } from 'lib/utils/handleFetchErrors'
 import { createBanner } from 'lib/services/banners'
-import { IBannerToCreate } from 'lib/types'
+import { EBannerType, IBannerToCreate } from 'lib/types'
 import { rulesForm } from './rulesForm'
 import { config } from 'config'
 
 import { LoaderPage } from 'components/layout/loaders/LoaderPage'
-import { InputBasic } from 'components/common/inputs/InputBasic'
+import { InputBasic, InputSelectBasic } from 'components/common/inputs/InputBasic'
 import { Button } from 'components/common/Button'
 import { UploadImage } from './UploadImage'
 
@@ -41,7 +41,12 @@ export const FormCreateBanner = () => {
       return
     }
 
-    const bannerToCreate: IBannerToCreate = { title: dataForm.title, image: imageToUpload[0]?.file }
+    const bannerToCreate: IBannerToCreate = {
+      title: dataForm.title,
+      image: imageToUpload[0]?.file,
+      type: dataForm.type
+    }
+
     const { error } = await createBanner(bannerToCreate)
 
     if (error) {
@@ -58,14 +63,26 @@ export const FormCreateBanner = () => {
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} className='max-w-3xl mx-auto mt-2'>
-      <InputBasic
-        id='title'
-        type='text'
-        register={register}
-        rules={rulesForm}
-        label='Título del Banner'
-        placeholder='Título del Banner'
-      />
+      <section className='flex flex-col md:flex-row justify-between items-center gap-x-6'>
+        <InputBasic
+          id='title'
+          type='text'
+          register={register}
+          rules={rulesForm}
+          label='Título del Banner'
+          placeholder='Título del Banner'
+        />
+
+        <InputSelectBasic
+          id='type'
+          label='Tipo de banner'
+          rules={{ required: true }}
+          register={register}
+        >
+          <option value={EBannerType['MOBILE']}>{EBannerType['MOBILE']}</option>
+          <option value={EBannerType['DESKTOP']}>{EBannerType['DESKTOP']}</option>
+        </InputSelectBasic>
+      </section>
 
       <UploadImage
         imageToUpload={imageToUpload}

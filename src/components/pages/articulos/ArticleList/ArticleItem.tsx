@@ -1,6 +1,8 @@
 /* eslint-disable @next/next/no-img-element */
 import usePortal from 'react-cool-portal'
 import { toast } from 'react-toastify'
+import { useState } from 'react'
+import Image from 'next/image'
 
 import { normalizeDate } from 'lib/utils/getLocalDate'
 import { deleteBannerById } from 'lib/services/banners'
@@ -10,6 +12,7 @@ import { Button, LinkAsButton } from 'components/common/Button'
 import { Modal } from 'components/layout/Modal'
 
 export const ArticleItem = ({ id, title, image, author, published, category, type, createdAt }: IArticle) => {
+  const [isLoadingImg, setIsLoadingImg] = useState(true)
   const { Portal, show, hide } = usePortal({ defaultShow: false })
 
   const deleteBanner = async () => {
@@ -34,7 +37,7 @@ export const ArticleItem = ({ id, title, image, author, published, category, typ
         </div>
       </Modal>
 
-      <li className='bg-slate-200 rounded-md p-3' >
+      <li className='border-2 border-gray-100 rounded-md p-3'>
         <section>
           <h6>{title}</h6>
 
@@ -42,12 +45,13 @@ export const ArticleItem = ({ id, title, image, author, published, category, typ
         </section>
 
         <section className='mt-2 relative'>
-          <img
+          <Image
             src={image.url}
             height={image.height}
             width={image.width}
             alt={title}
-            className='rounded-md'
+            className={`rounded-md ${isLoadingImg ? 'skeleton w-full h-[300px]' : 'block'}`}
+            onLoadingComplete={() => {setIsLoadingImg(false)}}
           />
 
           <div className='absolute bottom-1 right-2'>

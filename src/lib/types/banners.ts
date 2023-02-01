@@ -1,8 +1,16 @@
 import { IFetchReturn } from './http'
 
+export type TBannerType = 'MOBILE' | 'DESKTOP'
+
+export enum EBannerType {
+  MOBILE = 'MOBILE',
+  DESKTOP = 'DESKTOP'
+}
+
 export interface IBannerToCreate {
   title: string
   image: FileList
+  type: TBannerType
 }
 
 export interface IBannerToUpdate {
@@ -10,9 +18,11 @@ export interface IBannerToUpdate {
   image: FileList
 }
 
+
 export interface IBanner  {
   id: string
   title: string
+  type: TBannerType
   image: {
     publicId: string
     url: string

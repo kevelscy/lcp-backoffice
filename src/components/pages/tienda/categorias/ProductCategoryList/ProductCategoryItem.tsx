@@ -33,7 +33,7 @@ export const ProductCategoryItem = ({ id, title, products, createdAt, deleteProd
         </div>
       </Modal>
 
-      <li className='bg-slate-200 rounded-md p-3'>
+      <li className='border-2 border-gray-100 rounded-md p-3'>
         <section>
           <h6>{title}</h6>
         </section>

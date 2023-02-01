@@ -8,6 +8,8 @@ import { getPostById } from 'lib/services/posts'
 import { AuthLayout } from 'layouts/AuthLayout'
 import { LoaderPage } from 'components/layout/loaders/LoaderPage'
 import { FormEditArticle } from 'components/pages/articulos/FormEditArticle'
+import { EmptyPageContent } from 'components/common/empty/EmptyPageContent'
+import Link from 'next/link'
 
 export const ArticleDetailPage: PageWithLayout = () => {
   const router = useRouter()
@@ -24,7 +26,7 @@ export const ArticleDetailPage: PageWithLayout = () => {
           handleFetchErrors(error.status, error.message)
           return
         }
-        
+
         setArticle(data)
         setIsLoading(false)
       }
@@ -32,6 +34,15 @@ export const ArticleDetailPage: PageWithLayout = () => {
   }, [router.query.id])
 
   if (isLoading) return <LoaderPage />
+
+  if (!article) return (
+    <EmptyPageContent label='Artículo no encontrado'>
+      <Link href='/articulos/crear' className='text-blue-500 font-bold'>
+        Crear nuevo artículo
+      </Link>
+    </EmptyPageContent>
+  )
+
 
   return (
     <div>
