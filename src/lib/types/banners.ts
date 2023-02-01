@@ -9,26 +9,39 @@ export enum EBannerType {
 
 export interface IBannerToCreate {
   title: string
-  image: FileList
-  type: TBannerType
+  image: {
+    mobile: FileList
+    desktop: FileList
+  }
 }
 
 export interface IBannerToUpdate {
   title: string
-  image: FileList
+  image: {
+    mobile: FileList
+    desktop: FileList
+  }
 }
 
 
-export interface IBanner  {
+export interface IBanner {
   id: string
   title: string
   type: TBannerType
   image: {
-    publicId: string
-    url: string
-    width: number
-    height: number
-  },
+    mobile: {
+      publicId: string
+      url: string
+      width: number
+      height: number
+    }
+    desktop: {
+      publicId: string
+      url: string
+      width: number
+      height: number
+    }
+  }
   createdAt: string
   updatedAt: string
 }

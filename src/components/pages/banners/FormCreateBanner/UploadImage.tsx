@@ -1,15 +1,21 @@
 /* eslint-disable @next/next/no-img-element */
 import { AddImage } from 'components/common/icons'
-import ImageUploading from 'react-images-uploading'
+import ImageUploading, { ImageListType } from 'react-images-uploading'
 
-export const UploadImage = ({ imageToUpload, onChange }) => {
+interface UploadImageProps {
+  type: 'mobile' | 'desktop'
+  onChange: (image: ImageListType, addUpdateIndex?: number[], type?: 'mobile' | 'desktop') => void
+  imageToUpload: ImageListType
+}
+
+export const UploadImage = ({ imageToUpload, onChange, type }: UploadImageProps) => {
   return (
-    <div className='mt-2'>
-      <label className='block font-semibold text-gray-700'>Imagen del Banner</label>
+    <div className='mt-2 w-full'>
+      <label className='block font-semibold text-gray-700'>Imagen {type} del banner</label>
 
       <ImageUploading
         value={imageToUpload}
-        onChange={onChange}
+        onChange={(imageListType, addUpdatedIndex) => onChange(imageListType, addUpdatedIndex, type)}
         dataURLKey='data_url'
         acceptType={['webp', 'png']}
       >
