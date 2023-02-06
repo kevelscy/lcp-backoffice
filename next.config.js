@@ -15,7 +15,31 @@ module.exports = {
         {
           source: '/',
           destination: '/dashboard'
-        }
+        },
+        {
+          source: '/tienda/:path*',
+          destination: '/proximamente',
+        },
+        {
+          source: '/multimedia',
+          destination: '/proximamente',
+        },
+        {
+          source: '/usuarios',
+          destination: '/proximamente',
+        },
+        {
+          source: '/eventos',
+          destination: '/proximamente',
+        },
+        {
+          source: '/devocionales',
+          destination: '/proximamente',
+        },
+        {
+          source: '/articulos',
+          destination: '/proximamente',
+        },
       ]
   }
 }

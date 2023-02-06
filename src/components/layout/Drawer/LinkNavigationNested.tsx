@@ -32,7 +32,7 @@ export const LinkNavigationNested = ({ label, icon, subLinks }: LinkNavigationNe
       <button
         onClick={toggleShow}
         type='button'
-        className='flex items-center w-full p-2 text-base font-normal text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700'
+        className='flex items-center w-full p-2 text-base font-normal text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-100 dark:text-white dark:hover:bg-[#282828] select-none'
         aria-controls='dropdown-example'
         data-collapse-toggle='dropdown-example'
       >
@@ -48,8 +48,8 @@ export const LinkNavigationNested = ({ label, icon, subLinks }: LinkNavigationNe
               <Link
                 href={ subLink.to }
                 className={
-                  `flex items-center w-full p-2 text-base font-normal text-gray-900 transition duration-75 rounded-lg pl-6 group hover:bg-gray-100 dark:text-white group-hover:text-black dark:hover:bg-gray-700 
-                  ${ router.pathname.includes(subLink.to) && 'text-brown-primary-300 bg-gray-300' }`
+                  `flex items-center w-full p-2 text-base font-normal text-gray-900 transition duration-75 rounded-lg pl-6 group hover:bg-gray-100 dark:text-white dark:hover:bg-[#282828] 
+                  ${ router.pathname.includes(subLink.to) && 'border-2 border-gray-300 bg-gray-300 dark:bg-[#282828] dark:border-gray-100 dark:border-2' } select-none`
                 }
               >
                 <div>{ subLink?.icon }</div>

@@ -53,7 +53,7 @@ export const BannerList = () => {
   )
 
   return (
-    <ul className='w-full h-full basicList gap-x-6 gap-y-6'>
+    <ul className='w-full h-full basicList-banners gap-x-6 gap-y-6'>
       {
         banners.map(banner =>
           <BannerItem

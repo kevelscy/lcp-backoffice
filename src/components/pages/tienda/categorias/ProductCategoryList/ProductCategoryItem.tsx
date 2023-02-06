@@ -35,12 +35,12 @@ export const ProductCategoryItem = ({ id, title, products, createdAt, deleteProd
 
       <li className='border-2 border-gray-100 rounded-md p-3'>
         <section>
-          <h6>{title}</h6>
+          <h6 className='text-lg dark:text-white'>{title}</h6>
         </section>
 
         <section className='mt-2'>
-          <small>Cantidad de Productos: { products.length }</small> <br />
-          <small>Creación: { normalizeDate(createdAt) }</small>
+          <small className='dark:text-gray-200'>Cantidad de Productos: { products.length }</small> <br />
+          <small className='dark:text-gray-200'>Creación: { normalizeDate(createdAt) }</small>
         </section>
 
         <div className='w-full flex gap-x-2 justify-start items-end pt-2 text-sm'>

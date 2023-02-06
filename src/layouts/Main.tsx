@@ -38,7 +38,7 @@ export const MainLayout = ({ children }: { children: ReactNode }) => {
   }, [auth])
 
   return (
-    <div className='MainLayout w-full h-full'>
+    <div className='MainLayout w-full h-full bg-white dark:bg-[#111]'>
       {children}
     </div>
   )

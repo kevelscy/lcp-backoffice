@@ -11,7 +11,7 @@ interface UploadImageProps {
 export const UploadImage = ({ imageToUpload, onChange, type }: UploadImageProps) => {
   return (
     <div className='mt-2 w-full'>
-      <label className='block font-semibold text-gray-700'>Imagen {type} del banner</label>
+      <label className='block font-semibold text-gray-700 dark:text-white'>Imagen {type} del banner</label>
 
       <ImageUploading
         value={imageToUpload}
@@ -67,7 +67,7 @@ export const UploadImage = ({ imageToUpload, onChange, type }: UploadImageProps)
                     Sube una imagen
                   </span>
 
-                  <span>o arrastra y suelta una imagen</span>
+                  <span className='dark:text-white'>o arrastra y suelta una imagen</span>
                 </div>
               </>
             }

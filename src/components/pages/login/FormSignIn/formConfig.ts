@@ -1,13 +1,13 @@
 interface IFormConfig {
   email: {
-    required: { value: boolean; message: string }
-    pattern: { value: RegExp; message: string }
+    required: { value: boolean, message: string }
+    pattern: { value: RegExp, message: string }
   }
 
   password: {
-    required: { value: boolean; message: string }
-    maxLength: { value: number; message: string }
-    minLength: { value: number; message: string }
+    required: { value: boolean, message: string }
+    maxLength: { value: number, message: string }
+    minLength: { value: number, message: string }
   }
 }
 

@@ -42,7 +42,7 @@ export const createBanner = async (banner: IBannerToCreate): Promise<IReturnBann
   const entries = Object.entries(banner)
 
   entries.forEach(([key, value]) => {
-    if (key === 'image') {
+    if (key === 'imageMobile' || key === 'imageDesktop') {
       if (!value) return
     }
 

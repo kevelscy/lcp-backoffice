@@ -47,16 +47,40 @@ export const BannerItem = ({ id, title, image, refreshBanners, setIsLoading }: I
         </div>
       </Modal>
 
-      <li className='bg-slate-200 rounded-md p-3'>
-        <h6>{title}</h6>
+      <li className='bg-slate-100 dark:bg-[#1a1a1a] dark:border-gray-500 dark:border-2 rounded-md p-3'>
+        <h6 className='font-bold text-lg dark:text-white'>{title}</h6>
 
-        <img
-          src={image.url}
-          height={image.height}
-          width={image.width}
-          alt={title}
-          className='rounded-md mt-2 object-contain mx-auto h-[176px]'
-        />
+        <section className='flex flex-col sm:flex-row justify-between items-center gap-x-4 mt-2'>
+          <div>
+            <label htmlFor='bannerMobile' className='font-bold text-sm dark:text-[#a1a1a1]'>
+              Mobile
+            </label>
+
+            <img
+              id='bannerMobile'
+              src={image.mobile.url}
+              height={image.mobile.height}
+              width={image.mobile.width}
+              alt={title}
+              className='rounded-md object-contain mx-auto h-[176px]'
+            />
+          </div>
+
+          <div>
+            <label htmlFor='bannerDesktop' className='font-bold text-sm dark:text-[#a1a1a1]'>
+              Desktop
+            </label>
+
+            <img
+              id='bannerDesktop'
+              src={image.desktop.url}
+              height={image.desktop.height}
+              width={image.desktop.width}
+              alt={title}
+              className='rounded-md object-contain mx-auto h-[176px]'
+            />
+          </div>
+        </section>
 
         <div className='w-full flex gap-x-2 justify-start items-end pt-2 text-sm'>
           <LinkAsButton to={`/banners/${id}`} classes='w-full text-center'>

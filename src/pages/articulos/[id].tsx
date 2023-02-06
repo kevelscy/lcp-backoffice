@@ -10,47 +10,48 @@ import { LoaderPage } from 'components/layout/loaders/LoaderPage'
 import { FormEditArticle } from 'components/pages/articulos/FormEditArticle'
 import { EmptyPageContent } from 'components/common/empty/EmptyPageContent'
 import Link from 'next/link'
+import { ComingSoon } from 'components/common/ComingSoon'
 
 export const ArticleDetailPage: PageWithLayout = () => {
-  const router = useRouter()
-  const [article, setArticle] = useState<IArticle>(null)
-  const [isLoading, setIsLoading] = useState(true)
+  return <ComingSoon />
+  // const router = useRouter()
+  // const [article, setArticle] = useState<IArticle>(null)
+  // const [isLoading, setIsLoading] = useState(true)
 
-  useEffect(() => {
-    (async () => {
-      if (router.query.id) {
-        const { data, error } = await getPostById(router.query.id as string)
+  // useEffect(() => {
+  //   (async () => {
+  //     if (router.query.id) {
+  //       const { data, error } = await getPostById(router.query.id as string)
         
-        if (error) {
-          setIsLoading(false)
-          handleFetchErrors(error.status, error.message)
-          return
-        }
+  //       if (error) {
+  //         setIsLoading(false)
+  //         handleFetchErrors(error.status, error.message)
+  //         return
+  //       }
 
-        setArticle(data)
-        setIsLoading(false)
-      }
-    })()
-  }, [router.query.id])
+  //       setArticle(data)
+  //       setIsLoading(false)
+  //     }
+  //   })()
+  // }, [router.query.id])
 
-  if (isLoading) return <LoaderPage />
+  // if (isLoading) return <LoaderPage />
 
-  if (!article) return (
-    <EmptyPageContent label='Artículo no encontrado'>
-      <Link href='/articulos/crear' className='text-blue-500 font-bold'>
-        Crear nuevo artículo
-      </Link>
-    </EmptyPageContent>
-  )
+  // if (!article) return (
+  //   <EmptyPageContent label='Artículo no encontrado'>
+  //     <Link href='/articulos/crear' className='text-blue-500 font-bold'>
+  //       Crear nuevo artículo
+  //     </Link>
+  //   </EmptyPageContent>
+  // )
 
+  // return (
+  //   <div>
+  //     <h4 className='text-xl font-bold dark:text-white'>Editar Artículo { article.title }</h4>
 
-  return (
-    <div>
-      <h4 className='text-xl font-bold'>Editar Artículo { article.title }</h4>
-
-      <FormEditArticle {...article} />
-    </div>
-  )
+  //     <FormEditArticle {...article} />
+  //   </div>
+  // )
 }
 
 ArticleDetailPage.getLayout = (page: ReactNode) =>

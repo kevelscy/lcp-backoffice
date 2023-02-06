@@ -51,10 +51,10 @@ export const AuthLayout = ({ children }: { children: ReactNode | ReactElement })
   }
 
   return (
-    <div className='authLayout relative'>
+    <div className='authLayout relative bg-white dark:bg-[#111]'>
       <Drawer />
 
-      <main className='authLayout__content max-w-6xl mx-auto overflow-auto px-4 pt-4 pb-28 bg-white'>
+    <main className='authLayout__content max-w-6xl mx-auto overflow-auto px-4 pt-4 pb-28'>
         {children}
       </main>
 

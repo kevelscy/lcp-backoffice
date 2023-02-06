@@ -1,1 +1,1 @@
-export type TRouteLinks = '/' | '/banner' | '/articulos' | '/login' | '/multimedia' | '/reservaciones' | '/tienda' | '/usuarios' | '/devocionales'
+export type TRouteLinks = '/' | '/banners' | '/articulos' | '/login' | '/multimedia' | '/reservaciones' | '/tienda' | '/tienda/categorias' | '/tienda/productos' | '/usuarios' | '/devocionales'

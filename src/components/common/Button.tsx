@@ -22,7 +22,7 @@ export const Button = ({
   <button
     type={type}
     disabled={disabled}
-    className={`px-4 py-2 disabled:opacity-50 disabled:cursor-not-allowed bg-black text-white uppercase rounded-md focus:outline-none hover:opacity-80 text-sm ${classes}`}
+    className={`px-4 py-2 disabled:opacity-50 disabled:cursor-not-allowed bg-black text-white uppercase rounded-md focus:outline-none text-sm border-2 border-black dark:bg-transparent dark:border-white dark:border-2 dark:hover:bg-white dark:hover:text-black ${classes}`}
     onClick={onClick}
     style={style}
   >
@@ -45,7 +45,7 @@ export const LinkAsButton = ({
 }: LinkAsButton) => (
   <Link
     href={to}
-    className={`px-4 py-2 inline-block disabled:opacity-50 disabled:cursor-not-allowed bg-black text-white uppercase rounded-md focus:outline-none hover:opacity-80 text-center text-sm ${classes}`}
+    className={`px-4 py-2 inline-block disabled:opacity-50 disabled:cursor-not-allowed bg-black text-white uppercase rounded-md focus:outline-none text-center text-sm border-2 border-black dark:bg-transparent dark:border-white dark:border-2 dark:hover:bg-white dark:hover:text-black ${classes}`}
     style={style}
   >
     {children || 'LINK DEFAULT'}

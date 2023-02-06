@@ -8,38 +8,40 @@ import { AuthLayout } from 'layouts/AuthLayout'
 
 import { FormEditDevotional } from 'components/pages/devocionales/FormEditDevotional'
 import { LoaderPage } from 'components/layout/loaders/LoaderPage'
+import { ComingSoon } from 'components/common/ComingSoon'
 
 export const DevotionalDetailPage: PageWithLayout = () => {
-  const [devotional, setDevotional] = useState<IDevotional>(null)
-  const [isLoading, setIsLoading] = useState(true)
-  const router = useRouter()
+  return <ComingSoon />
+  // const [devotional, setDevotional] = useState<IDevotional>(null)
+  // const [isLoading, setIsLoading] = useState(true)
+  // const router = useRouter()
 
-  useEffect(() => {
-    (async () => {
-      if (router.query.id) {
-        const { data, error } = await getDevotionalsById(router.query.id as string)
+  // useEffect(() => {
+  //   (async () => {
+  //     if (router.query.id) {
+  //       const { data, error } = await getDevotionalsById(router.query.id as string)
 
-        if (error) {
-          setIsLoading(false)
-          handleFetchErrors(error.status, error.message)
-          return
-        }
+  //       if (error) {
+  //         setIsLoading(false)
+  //         handleFetchErrors(error.status, error.message)
+  //         return
+  //       }
 
-        setDevotional(data)
-        setIsLoading(false)
-      }
-    })()
-  }, [router.query.id])
+  //       setDevotional(data)
+  //       setIsLoading(false)
+  //     }
+  //   })()
+  // }, [router.query.id])
 
-  if (isLoading) return <LoaderPage />
+  // if (isLoading) return <LoaderPage />
 
-  return (
-    <div>
-      <h4 className='text-xl font-bold'>Editar Devocional { devotional.title }</h4>
+  // return (
+  //   <div>
+  //     <h4 className='text-xl font-bold'>Editar Devocional { devotional.title }</h4>
 
-      <FormEditDevotional {...devotional} />
-    </div>
-  )
+  //     <FormEditDevotional {...devotional} />
+  //   </div>
+  // )
 }
 
 DevotionalDetailPage.getLayout = (page: ReactNode) =>

@@ -62,18 +62,18 @@ export const ProductList = () => {
 
   return (
     <section className='mt-10'>
-      <span className='text-xl mr-4'>Productos</span>
+      <span className='text-xl mr-4 dark:text-white'>Productos</span>
 
       <div className='overflow-x-auto p-3'>
         <table className='table-auto w-full'>
-          <thead className='text-xs font-semibold uppercase text-gray-400 bg-gray-50'>
+          <thead className='text-xs font-semibold uppercase text-gray-400 bg-gray-50 dark:bg-[#1a1a1a]'>
             <tr>
               {
                 theadLabel.map(thead => (
                   <th
                     key={thead.label}
                     scope='col'
-                    className='px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider'
+                    className='px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-200 uppercase tracking-wider'
                   >
                     { thead.label }
                   </th>

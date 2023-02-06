@@ -7,7 +7,7 @@ import { BannerList } from 'components/pages/banners/BannerList'
 export const BannersPage: PageWithLayout = () => {
   return (
     <div>
-      <h4 className='text-xl font-bold'>Banner</h4>
+      <h4 className='text-xl font-bold dark:text-white'>Banner</h4>
 
       <LinkAsButton to='/banners/crear' classes='mt-2'>
         Crear Nuevo Banner

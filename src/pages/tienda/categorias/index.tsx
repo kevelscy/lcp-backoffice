@@ -9,43 +9,45 @@ import { ProductCategoryList } from 'components/pages/tienda/categorias/ProductC
 import { EmptyPageContent } from 'components/common/empty/EmptyPageContent'
 import { LoaderPage } from 'components/layout/loaders/LoaderPage'
 import { LinkAsButton } from 'components/common/Button'
+import { ComingSoon } from 'components/common/ComingSoon'
 
 export const ShopProductCategoriesPage: PageWithLayout = () => {
-  const { productCategories, isLoading, deleteProductCategoryById } = useCategoriesProduct('getInit')
+  return <ComingSoon />
+  // const { productCategories, isLoading, deleteProductCategoryById } = useCategoriesProduct('getInit')
 
-  if (isLoading) return <LoaderPage />
+  // if (isLoading) return <LoaderPage />
 
-  if (!productCategories.length) return (
-    <EmptyPageContent label='Sin Contenido'>
-      <Link href='/tienda/categorias/crear' className='text-blue-500 font-bold'>
-        Crear Nueva Categoria de Productos
-      </Link>
-    </EmptyPageContent>
-  )
+  // if (!productCategories.length) return (
+  //   <EmptyPageContent label='Sin Contenido'>
+  //     <Link href='/tienda/categorias/crear' className='text-blue-500 font-bold'>
+  //       Crear Nueva Categoria de Productos
+  //     </Link>
+  //   </EmptyPageContent>
+  // )
 
-  return (
-    <div>
-      <h4 className='text-xl font-bold'>Tienda - Categorias</h4>
+  // return (
+  //   <div>
+  //     <h4 className='text-xl font-bold dark:text-white'>Tienda - Categorias</h4>
 
-      <LinkAsButton to='/tienda/categorias/crear' classes='mt-2'>
-        Crear Nueva Categoria
-      </LinkAsButton>
+  //     <LinkAsButton to='/tienda/categorias/crear' classes='mt-2'>
+  //       Crear Nueva Categoria
+  //     </LinkAsButton>
 
-      <section className='mt-4'>
-        <ProductCategoryList>
-          {
-            productCategories.map(category => (
-              <ProductCategoryItem
-                key={category.id}
-                {...category}
-                deleteProductCategoryById={deleteProductCategoryById}
-              />
-            ))
-          }
-        </ProductCategoryList>
-      </section>
-    </div>
-  )
+  //     <section className='mt-4'>
+  //       <ProductCategoryList>
+  //         {
+  //           productCategories.map(category => (
+  //             <ProductCategoryItem
+  //               key={category.id}
+  //               {...category}
+  //               deleteProductCategoryById={deleteProductCategoryById}
+  //             />
+  //           ))
+  //         }
+  //       </ProductCategoryList>
+  //     </section>
+  //   </div>
+  // )
 }
 
 ShopProductCategoriesPage.getLayout = (page: ReactNode) =>

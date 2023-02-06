@@ -2,27 +2,29 @@ import { ReactElement, useEffect, useState } from 'react'
 import Head from 'next/head'
 
 import { AuthLayout } from 'layouts/AuthLayout'
+import { ComingSoon } from 'components/common/ComingSoon'
 
 export default function UsuariosPage () {
-  const [users, setUsers] = useState([])
+  return <ComingSoon />
+  // const [users, setUsers] = useState([])
 
-  useEffect(() => {
-    fetch('/api/users')
-      .then(res => res.json())
-      .then(users => setUsers([...users.data]))
-  }, [])
+  // useEffect(() => {
+  //   fetch('/api/users')
+  //     .then(res => res.json())
+  //     .then(users => setUsers([...users.data]))
+  // }, [])
 
-  return (
-    <div className='w-full h-full'>
-      <span>LCP Admin - Usuarios</span>
+  // return (
+  //   <div className='w-full h-full'>
+  //     <span>LCP Admin - Usuarios</span>
 
-      <br />
+  //     <br />
 
-      <div>
-        {users?.map(user => <li key={user.uid}>{user?.email}</li>)}
-      </div>
-    </div>
-  )
+  //     <div>
+  //       {users?.map(user => <li key={user.uid}>{user?.email}</li>)}
+  //     </div>
+  //   </div>
+  // )
 }
 
 UsuariosPage.getLayout = (page: ReactElement) =>
@@ -30,5 +32,6 @@ UsuariosPage.getLayout = (page: ReactElement) =>
   <Head>
     <title>Usuarios - LCP Admin</title>
   </Head>
+
   {page}
 </AuthLayout>

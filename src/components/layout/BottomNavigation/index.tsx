@@ -10,8 +10,8 @@ const { current: linksNav } = useRef<{ to: TRouteLinks, label: string, icon: JSX
     { to: '/articulos', label: 'Articu', icon: <DocumentIcon /> },
     { to: '/devocionales', label: 'Tienda', icon: <Bag /> },
     { to: '/', label: 'Inicio', icon: <PieIcon /> },
-    { to: '/banner', label: 'Activi', icon: <ImageIcon /> },
-    { to: '/tienda', label: 'Tienda', icon: <Bag /> },
+    { to: '/banners', label: 'Activi', icon: <ImageIcon /> },
+    { to: '/tienda/productos', label: 'Tienda', icon: <Bag /> },
   ])
 
   return (

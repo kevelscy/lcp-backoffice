@@ -55,8 +55,8 @@ export const DevotionalItem = ({ id, title, file, refreshDevotionals, setIsLoadi
         </div>
       </Modal>
 
-      <li className='bg-slate-200 rounded-md p-3'>
-        <h6 className='font-semibold'>{title}</h6>
+      <li className='bg-slate-200 border-slate-200 border-2 rounded-md p-3 dark:bg-[#1a1a1a] dark:border-gray-500 dark:border-2'>
+        <h6 className='font-semibold dark:text-white'>{title}</h6>
 
         <a href={fileUrl} download className='text-blue-500'>
           Descargar Archivo

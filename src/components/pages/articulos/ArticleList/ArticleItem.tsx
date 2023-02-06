@@ -3,6 +3,7 @@ import usePortal from 'react-cool-portal'
 import { toast } from 'react-toastify'
 import { useState } from 'react'
 import Image from 'next/image'
+import Link from 'next/link'
 
 import { normalizeDate } from 'lib/utils/getLocalDate'
 import { deleteBannerById } from 'lib/services/banners'
@@ -37,11 +38,17 @@ export const ArticleItem = ({ id, title, image, author, published, category, typ
         </div>
       </Modal>
 
-      <li className='border-2 border-gray-100 rounded-md p-3'>
+      <li className='border-2 border-gray-100 rounded-md p-3 dark:bg-[#1a1a1a] dark:border-gray-500 dark:border-2'>
         <section>
-          <h6>{title}</h6>
+          <Link href={`/articulos/${id}`}>
+            <h6 className='text-lg font-bold inline hover:text-blue-700 dark:text-white'>
+              {title}
+            </h6>
+          </Link>
 
-          <small>Autor: {author.user.firstName} {author.user.lastName}</small>
+          <br/>
+
+          <small className='dark:text-gray-100'>Autor: {author.user.firstName} {author.user.lastName}</small>
         </section>
 
         <section className='mt-2 relative'>
@@ -62,9 +69,9 @@ export const ArticleItem = ({ id, title, image, author, published, category, typ
         </section>
 
         <section className='mt-2'>
-          <small>Tipo: { type }</small> <br />
-          <small>Categoria: { category }</small> <br />
-          <small>Creación: { normalizeDate(createdAt) }</small>
+          <small className='dark:text-gray-100'>Tipo: { type }</small> <br />
+          <small className='dark:text-gray-100'>Categoria: { category }</small> <br />
+          <small className='dark:text-gray-100'>Creación: { normalizeDate(createdAt) }</small>
         </section>
 
         <div className='w-full flex gap-x-2 justify-start items-end pt-2 text-sm'>

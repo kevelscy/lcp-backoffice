@@ -10,46 +10,48 @@ import { AuthLayout } from 'layouts/AuthLayout'
 import { FormEditProduct } from 'components/pages/tienda/productos/FormEditProduct'
 import { EmptyPageContent } from 'components/common/empty/EmptyPageContent'
 import { LoaderPage } from 'components/layout/loaders/LoaderPage'
+import { ComingSoon } from 'components/common/ComingSoon'
 
 export const ShopProductDetailPage: PageWithLayout = () => {
-  const [product, setProduct] = useState<IProduct>(null)
-  const [isLoading, setIsLoading] = useState(true)
-  const router = useRouter()
+  return <ComingSoon />
+  // const [product, setProduct] = useState<IProduct>(null)
+  // const [isLoading, setIsLoading] = useState(true)
+  // const router = useRouter()
 
-  useEffect(() => {
-    (async () => {
-      if (router.query.id) {
-        const { data, error } = await getProductById(router.query.id as string)
+  // useEffect(() => {
+  //   (async () => {
+  //     if (router.query.id) {
+  //       const { data, error } = await getProductById(router.query.id as string)
 
-        if (error) {
-          setIsLoading(false)
-          handleFetchErrors(error.status, error.message)
-          return
-        }
+  //       if (error) {
+  //         setIsLoading(false)
+  //         handleFetchErrors(error.status, error.message)
+  //         return
+  //       }
   
-        setProduct(data)
-        setIsLoading(false)
-      }
-    })()
-  }, [router.query.id])
+  //       setProduct(data)
+  //       setIsLoading(false)
+  //     }
+  //   })()
+  // }, [router.query.id])
 
-  if (isLoading) return <LoaderPage />
+  // if (isLoading) return <LoaderPage />
 
-  if (!product) return (
-    <EmptyPageContent label='Sin Contenido'>
-      <Link href='/tienda/productos/crear' className='text-blue-500 font-bold'>
-        Crear Nuevo Producto
-      </Link>
-    </EmptyPageContent>
-  )
+  // if (!product) return (
+  //   <EmptyPageContent label='Sin Contenido'>
+  //     <Link href='/tienda/productos/crear' className='text-blue-500 font-bold'>
+  //       Crear Nuevo Producto
+  //     </Link>
+  //   </EmptyPageContent>
+  // )
 
-  return (
-    <div>
-      <h4 className='text-xl font-bold'>Editar Producto { product.title }</h4>
+  // return (
+  //   <div>
+  //     <h4 className='text-xl font-bold dark:text-white'>Editar Producto { product.title }</h4>
 
-      <FormEditProduct {...product} />
-    </div>
-  )
+  //     <FormEditProduct {...product} />
+  //   </div>
+  // )
 }
 
 ShopProductDetailPage.getLayout = (page: ReactNode) =>

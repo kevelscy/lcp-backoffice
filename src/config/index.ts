@@ -1,9 +1,17 @@
 interface IConfig {
   API: { URL: string }
-  LIMIT_FILE_SIZE: 10485760
+  FILE_LIMITS: {
+    BANNERS: {
+      IMAGE_SIZE: 3145728 // 3mb
+    }
+  }
 }
 
 export const config: IConfig = {
   API: { URL: process.env.NEXT_PUBLIC_API_URL },
-  LIMIT_FILE_SIZE: 10485760,
+  FILE_LIMITS: {
+    BANNERS: {
+      IMAGE_SIZE: 3145728 // 3mb
+    }
+  }
 }

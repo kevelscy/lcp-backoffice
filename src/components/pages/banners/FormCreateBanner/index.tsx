@@ -17,7 +17,7 @@ import { Button } from 'components/common/Button'
 import { UploadImage } from './UploadImage'
 
 export const FormCreateBanner = () => {
-  const { register, handleSubmit } = useForm<IBannerToCreate>()
+  const { register, handleSubmit, formState: { errors } } = useForm<IBannerToCreate>()
   const [bannerImg, setBannerImg] = useState({ mobile: [], desktop: [] })
   const [isLoading, setIsLoading] = useState(false)
   const router = useRouter()
@@ -45,21 +45,22 @@ export const FormCreateBanner = () => {
       return
     }
 
-    if (
-      bannerImg.mobile[0]?.file?.size > config.LIMIT_FILE_SIZE ||
-      bannerImg.desktop[0]?.file?.size > config.LIMIT_FILE_SIZE
-    ) {
-      toast('Solo imagenes de menos de 10MB', { type: 'warning' })
+    if (bannerImg.mobile[0]?.file?.size >= config.FILE_LIMITS.BANNERS.IMAGE_SIZE) {
+      toast('La imagen para mobile debe pesar menos de 5MB', { type: 'warning' })
+      setIsLoading(false)
+      return
+    }
+
+    if (bannerImg.desktop[0]?.file?.size >= config.FILE_LIMITS.BANNERS.IMAGE_SIZE) {
+      toast('La imagen para desktop debe pesar menos de 5MB', { type: 'warning' })
       setIsLoading(false)
       return
     }
 
     const bannerToCreate: IBannerToCreate = {
       title: dataForm.title,
-      image: {
-        mobile: bannerImg.mobile[0]?.file,
-        desktop: bannerImg.desktop[0]?.file
-      },
+      imageMobile:  bannerImg.mobile[0]?.file,
+      imageDesktop: bannerImg.desktop[0]?.file
     }
 
     const { error } = await createBanner(bannerToCreate)
@@ -86,6 +87,7 @@ export const FormCreateBanner = () => {
           rules={rulesForm}
           label='Título del Banner'
           placeholder='Título del Banner'
+          errors={errors}
         />
       </section>
 

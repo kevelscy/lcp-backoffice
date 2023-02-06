@@ -9,7 +9,7 @@ interface ILinkNavProps {
 
 export const LinkNav = ({ to, label, icon }: ILinkNavProps) => {
   return (
-    <li>
+    <li className='select-none'>
       <Link href={to} className='hover:text-blue-300'>
         {icon || label }
       </Link>

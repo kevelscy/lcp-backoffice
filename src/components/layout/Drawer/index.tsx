@@ -8,12 +8,14 @@ import { useDrawerStore } from 'lib/store/Drawer'
 import { useAuthStore } from 'lib/store/Auth'
 import { signOut } from 'lib/services/auth'
 
-import { CategoryIcon, Bag, DocumentIcon, ProfileIcon, ImageIcon, FolderIcon, PieIcon, ShoppingIcon, LogoutIcon } from 'components/common/icons'
+import { CategoryIcon, Bag, DocumentIcon, ProfileIcon, ImageIcon, FolderIcon, PieIcon, ShoppingIcon, LogoutIcon, LightThemeIcon, DarkThemeIcon } from 'components/common/icons'
 import { LinkNavigationNested } from './LinkNavigationNested'
 import { LinkNavigation } from './LinkNavigation'
+import { useTheme } from 'lib/hooks/useTheme'
 
 export const Drawer = () => {
   const [isLoading, setIsLoading] = useState(false)
+  const { theme, toggleTheme } = useTheme()
   const { auth, removeAuth } = useAuthStore()
   const { isOpen } = useDrawerStore()
   const router = useRouter()
@@ -42,7 +44,7 @@ export const Drawer = () => {
       style={{ gridArea: 'drawer' }}
       aria-labelledby='drawer-navigation-label'
       className={
-        `${ isOpen ? '-translate-x-0' : '-translate-x-full' } h-screen p-4 overflow-y-auto bg-white w-80 dark:bg-gray-800 hidden transform top-0 left-0 overflow-auto ease-in-out transition-all duration-300 text-gray-700 md:w-56 2xl:w-60 fixed z-40 md:flex flex-col justify-start items-center md:rounded-r-xl pt-5 pb-10 border-r-2 border-gray-100`
+        `${ isOpen ? '-translate-x-0' : '-translate-x-full' } h-screen p-4 overflow-y-auto bg-white w-80 dark:bg-[#111] hidden transform top-0 left-0 overflow-auto ease-in-out transition-all duration-300 text-gray-700 md:w-56 2xl:w-60 fixed z-40 md:flex flex-col justify-start items-center md:rounded-r-xl pt-5 pb-10 border-r-2 border-gray-100`
       }
     >
       <section className='flex flex-col justify-center items-center text-gray-500 uppercase dark:text-gray-400'>
@@ -50,7 +52,7 @@ export const Drawer = () => {
 
         <div className='mt-2 text-center'>
           <span>{ auth.firstName } { auth.lastName }</span> <br />
-          <small>LCP Backoffice</small>
+          <small className='select-none'>LCP Backoffice</small>
         </div>
       </section>
 
@@ -117,14 +119,35 @@ export const Drawer = () => {
               ]}
             />
           </li>
-          
+
+          <li>
+            <button
+              onClick={toggleTheme}
+              className='w-full flex items-center p-2 group group-hover:text-black text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-[#282828] select-none'
+            >
+              {
+                theme === 'light'
+                ? <DarkThemeIcon />
+                : <LightThemeIcon />
+              }
+              
+              <span className='pl-2'>
+                {
+                  theme === 'light'
+                  ? 'Modo Oscuro'
+                  : 'Modo Claro'
+                }
+              </span>
+            </button>
+          </li>
+
           <li>
             <button
               onClick={logout}
-              className='w-full flex items-center p-2 group group-hover:text-black text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700'
+              className='w-full flex items-center p-2 group group-hover:text-black text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-[#282828] select-none'
             >
               <LogoutIcon />
-              <span className='pl-2'>Cerrar Sesion</span>
+              <span className='pl-2'>Cerrar Sesión</span>
             </button>
           </li>
         </ul>
