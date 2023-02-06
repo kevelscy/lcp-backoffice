@@ -146,7 +146,7 @@ export const MenuBar = ({ editor }: { editor: Editor }) => {
       >
         hard break
       </button>
-      <button 
+      <button
         type='button'
         className='menuBar__button'
         onClick={addImage}

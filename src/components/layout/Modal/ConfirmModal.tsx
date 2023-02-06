@@ -19,7 +19,7 @@ export const ConfirmModal = ({ closeModal, confirmFn, confirmLabel }: IConfirmMo
         </section>
 
         <footer className='flex justify-between items-center'>
-          <Button onClick={() => { closeModal(); confirmFn }}>
+          <Button onClick={async () => { closeModal(); await confirmFn }}>
             Confirmar
           </Button>
 

@@ -1,3 +1,5 @@
+import Head from 'next/head'
+
 import { PageWithLayout, ReactNode } from 'lib/types'
 
 import { AuthLayout } from 'layouts/AuthLayout'
@@ -36,9 +38,14 @@ export const CreateBannersPage: PageWithLayout = () => {
   )
 }
 
-CreateBannersPage.getLayout = (page: ReactNode) =>
-<AuthLayout>
-  {page}
-</AuthLayout>
+CreateBannersPage.getLayout = (page: ReactNode) => (
+  <AuthLayout>
+    <Head>
+      <title>Crear Banner - LCP Admin</title>
+    </Head>
+
+    {page}
+  </AuthLayout>
+)
 
 export default CreateBannersPage

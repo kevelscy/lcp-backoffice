@@ -1,3 +1,5 @@
+import Head from 'next/head'
+
 import { PageWithLayout, ReactNode } from 'lib/types'
 
 import { AuthLayout } from 'layouts/AuthLayout'
@@ -17,9 +19,13 @@ export const CreateDevotionalPage: PageWithLayout = () => {
   // )
 }
 
-CreateDevotionalPage.getLayout = (page: ReactNode) =>
-<AuthLayout>
-  {page}
-</AuthLayout>
+CreateDevotionalPage.getLayout = (page: ReactNode) => (
+  <AuthLayout>
+    <Head>
+      <title>Crear Devocional - LCP Admin</title>
+    </Head>
 
+    {page}
+  </AuthLayout>
+)
 export default CreateDevotionalPage

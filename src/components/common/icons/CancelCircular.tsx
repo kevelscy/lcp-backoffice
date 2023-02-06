@@ -3,7 +3,7 @@ export const CancelCircular = ({
   height = null,
   fill = 'none',
   stroke = '#111',
-  classes = 'w-6 h-6',
+  classes = 'w-6 h-6'
 }) => (
   <svg
     width={width}

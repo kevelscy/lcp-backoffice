@@ -6,12 +6,12 @@ import { Bag, DocumentIcon, ImageIcon, PieIcon } from 'components/common/icons'
 import { LinkNav } from './LinkNav'
 
 export const BottomNavigation = () => {
-const { current: linksNav } = useRef<{ to: TRouteLinks, label: string, icon: JSX.Element }[]>([
+  const { current: linksNav } = useRef<{ to: TRouteLinks, label: string, icon: JSX.Element }[]>([
     { to: '/articulos', label: 'Articu', icon: <DocumentIcon /> },
     { to: '/devocionales', label: 'Tienda', icon: <Bag /> },
     { to: '/', label: 'Inicio', icon: <PieIcon /> },
     { to: '/banners', label: 'Activi', icon: <ImageIcon /> },
-    { to: '/tienda/productos', label: 'Tienda', icon: <Bag /> },
+    { to: '/tienda/productos', label: 'Tienda', icon: <Bag /> }
   ])
 
   return (

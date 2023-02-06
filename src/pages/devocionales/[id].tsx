@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import { useRouter } from 'next/router'
+import Head from 'next/head'
 
 import { IDevotional, PageWithLayout, ReactNode } from 'lib/types'
 import { handleFetchErrors } from 'lib/utils/handleFetchErrors'
@@ -44,9 +45,14 @@ export const DevotionalDetailPage: PageWithLayout = () => {
   // )
 }
 
-DevotionalDetailPage.getLayout = (page: ReactNode) =>
-<AuthLayout>
-  {page}
-</AuthLayout>
+DevotionalDetailPage.getLayout = (page: ReactNode) => (
+  <AuthLayout>
+    <Head>
+      <title>Devocional - LCP Admin</title>
+    </Head>
+
+    {page}
+  </AuthLayout>
+)
 
 export default DevotionalDetailPage

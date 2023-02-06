@@ -31,7 +31,7 @@ export const MainLayout = ({ children }: { children: ReactNode }) => {
         return
       }
 
-      toast('¡Sesión Recuperada!', { type: 'success' })
+      toast('Sesión Recuperada', { type: 'success' })
       setAuth(data)
     })()
   // eslint-disable-next-line react-hooks/exhaustive-deps

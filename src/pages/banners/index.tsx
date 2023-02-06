@@ -1,3 +1,5 @@
+import Head from 'next/head'
+
 import { PageWithLayout, ReactNode } from 'lib/types'
 
 import { AuthLayout } from 'layouts/AuthLayout'
@@ -22,6 +24,10 @@ export const BannersPage: PageWithLayout = () => {
 
 BannersPage.getLayout = (page: ReactNode) => (
   <AuthLayout>
+    <Head>
+      <title>Banners - LCP Admin</title>
+    </Head>
+
     {page}
   </AuthLayout>
 )

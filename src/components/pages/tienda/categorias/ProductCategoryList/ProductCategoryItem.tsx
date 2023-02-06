@@ -1,4 +1,4 @@
-/* eslint-disable @next/next/no-img-element */
+
 import usePortal from 'react-cool-portal'
 
 import { normalizeDate } from 'lib/utils/getLocalDate'

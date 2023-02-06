@@ -4,7 +4,7 @@ export const getNormalizeLocalDate = (): string => {
   return date.toLocaleDateString('es-ES', {
     year: 'numeric',
     month: 'long',
-    day: 'numeric',
+    day: 'numeric'
   })
 }
 
@@ -19,6 +19,6 @@ export const normalizeDate = (dateToNormalize: Date | string): string => {
   return date.toLocaleDateString('es-ES', {
     year: 'numeric',
     month: 'long',
-    day: 'numeric',
+    day: 'numeric'
   })
 }

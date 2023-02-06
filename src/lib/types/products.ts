@@ -5,6 +5,7 @@ export interface IProductCategory {
   title: string
   slug: string
   description: string
+  // eslint-disable-next-line no-use-before-define
   products: IProduct[]
   createdAt: string
   updatedAt: string

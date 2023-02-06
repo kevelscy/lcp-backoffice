@@ -14,13 +14,13 @@ import { LinkNavigation } from './LinkNavigation'
 import { useTheme } from 'lib/hooks/useTheme'
 
 export const Drawer = () => {
-  const [isLoading, setIsLoading] = useState(false)
+  const [, setIsLoading] = useState(false)
   const { theme, toggleTheme } = useTheme()
   const { auth, removeAuth } = useAuthStore()
   const { isOpen } = useDrawerStore()
   const router = useRouter()
 
-  const logout = async  () => {
+  const logout = async () => {
     setIsLoading(true)
     const accessToken = getLocalStorage('accessToken')
     const { error } = await signOut(accessToken)
@@ -32,9 +32,9 @@ export const Drawer = () => {
     }
 
     setIsLoading(false)
-    router.push('/')
+    router.push('/auth/signin')
     removeAuth()
-    toast('Sesion Cerrada', { type: 'info' })
+    toast('Sesión Cerrada', { type: 'info' })
   }
 
   return (
@@ -44,7 +44,7 @@ export const Drawer = () => {
       style={{ gridArea: 'drawer' }}
       aria-labelledby='drawer-navigation-label'
       className={
-        `${ isOpen ? '-translate-x-0' : '-translate-x-full' } h-screen p-4 overflow-y-auto bg-white w-80 dark:bg-[#111] hidden transform top-0 left-0 overflow-auto ease-in-out transition-all duration-300 text-gray-700 md:w-56 2xl:w-60 fixed z-40 md:flex flex-col justify-start items-center md:rounded-r-xl pt-5 pb-10 border-r-2 border-gray-100`
+        `${isOpen ? '-translate-x-0' : '-translate-x-full'} h-screen p-4 overflow-y-auto bg-white w-80 dark:bg-[#111] hidden transform top-0 left-0 overflow-auto ease-in-out transition-all duration-300 text-gray-700 md:w-56 2xl:w-60 fixed z-40 md:flex flex-col justify-start items-center md:rounded-r-xl pt-5 pb-10 border-r-2 border-gray-100`
       }
     >
       <section className='flex flex-col justify-center items-center text-gray-500 uppercase dark:text-gray-400'>
@@ -127,15 +127,15 @@ export const Drawer = () => {
             >
               {
                 theme === 'light'
-                ? <DarkThemeIcon />
-                : <LightThemeIcon />
+                  ? <DarkThemeIcon />
+                  : <LightThemeIcon />
               }
-              
+
               <span className='pl-2'>
                 {
                   theme === 'light'
-                  ? 'Modo Oscuro'
-                  : 'Modo Claro'
+                    ? 'Modo Oscuro'
+                    : 'Modo Claro'
                 }
               </span>
             </button>

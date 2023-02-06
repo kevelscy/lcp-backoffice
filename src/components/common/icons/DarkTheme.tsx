@@ -2,7 +2,7 @@
 import { IIconsBasicProps } from 'lib/types'
 
 export const DarkThemeIcon = ({ classes, fillColor = 'gray', intensityColor = '600' }: IIconsBasicProps) => (
-  <svg 
+  <svg
     aria-hidden='true'
     className={`flex-shrink-0 w-6 h-6 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white ${classes} fill-${fillColor}-${intensityColor}`}
     fill='currentColor'

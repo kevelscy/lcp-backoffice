@@ -44,13 +44,15 @@ export const BannerList = () => {
 
   if (isLoading) return <LoaderPage />
 
-  if (!banners.length) return (
-    <EmptyPageContent label='Sin Contenido'>
-      <Link href='/banners/crear' className='text-blue-500 font-bold'>
+  if (!banners.length) {
+    return (
+      <EmptyPageContent label='Sin Contenido'>
+        <Link href='/banners/crear' className='text-blue-500 font-bold'>
         Crear Nuevo Banner
-      </Link>
-    </EmptyPageContent>
-  )
+        </Link>
+      </EmptyPageContent>
+    )
+  }
 
   return (
     <ul className='w-full h-full basicList-banners gap-x-6 gap-y-6'>

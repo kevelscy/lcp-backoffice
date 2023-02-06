@@ -1,4 +1,5 @@
 import { useRouter } from 'next/router'
+import Head from 'next/head'
 
 import { AuthLayout } from 'layouts/AuthLayout'
 import { IBanner, PageWithLayout, ReactNode } from 'lib/types'
@@ -17,9 +18,9 @@ export const BannerDetailPage: PageWithLayout = () => {
     (async () => {
       if (router.query.id) {
         const { data, error } = await getBannerById(router.query.id as string)
-        
+
         if (error) return toast('Hubo un error', { type: 'error' })
-        
+
         setBanner(data)
         setIsLoading(false)
       }
@@ -37,9 +38,14 @@ export const BannerDetailPage: PageWithLayout = () => {
   )
 }
 
-BannerDetailPage.getLayout = (page: ReactNode) =>
-<AuthLayout>
-  {page}
-</AuthLayout>
+BannerDetailPage.getLayout = (page: ReactNode) => (
+  <AuthLayout>
+    <Head>
+      <title>Banner - LCP Admin</title>
+    </Head>
+
+    {page}
+  </AuthLayout>
+)
 
 export default BannerDetailPage

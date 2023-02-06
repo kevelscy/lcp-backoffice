@@ -1,7 +1,4 @@
-import { config } from 'config'
 import { IArticleToCreate, IArticleToUpdate, IReturnArticle, IReturnArticles } from 'lib/types'
-
-const { API } = config
 
 export const getAllPosts = async (): Promise<IReturnArticles> => {
   const res = await fetch('/api/posts')

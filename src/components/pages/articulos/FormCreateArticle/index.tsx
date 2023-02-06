@@ -1,4 +1,4 @@
-/* eslint-disable @next/next/no-img-element */
+
 import { useForm } from 'react-hook-form'
 import { useRouter } from 'next/router'
 import { toast } from 'react-toastify'
@@ -24,7 +24,7 @@ import { handleFetchErrors } from 'lib/utils/handleFetchErrors'
 import { LoaderPage } from 'components/layout/loaders/LoaderPage'
 
 export const FormCreateArticle = () => {
-  const { register, handleSubmit, watch, getValues, formState: { errors } } = useForm<IArticleToCreate>()
+  const { register, handleSubmit, watch } = useForm<IArticleToCreate>()
   const editor = useEditor({ content: '', extensions: [StarterKit, Image] })
   const [imageToUpload, setImageToUpload] = useState(null)
   const [authors, setAuthors] = useState<IAuthor[]>([])
@@ -76,7 +76,6 @@ export const FormCreateArticle = () => {
       return
     }
 
-
     setIsLoading(false)
     router.push('/articulos')
   }
@@ -116,24 +115,26 @@ export const FormCreateArticle = () => {
         >
           {
             authors.map((author, idx) => {
-              if (idx === 0) return (
-                <option
-                  key={author.id}
-                  value={author.id}
-                  selected
-                >
-                  { author.user.firstName } { author.user.lastName }
-                </option>
-              )
-
-              else return (
-                <option
-                  key={author.id}
-                  value={author.id}
-                >
-                  { author.user.firstName } { author.user.lastName }
-                </option>
-              )
+              if (idx === 0) {
+                return (
+                  <option
+                    key={author.id}
+                    value={author.id}
+                    selected
+                  >
+                    { author.user.firstName } { author.user.lastName }
+                  </option>
+                )
+              } else {
+                return (
+                  <option
+                    key={author.id}
+                    value={author.id}
+                  >
+                    { author.user.firstName } { author.user.lastName }
+                  </option>
+                )
+              }
             })
           }
         </InputSelectBasic>
@@ -172,7 +173,7 @@ export const FormCreateArticle = () => {
             type='text'
             value={slugify(titleWatcher || '')}
             placeholder='Slug del Artículo'
-            className='w-full px-3 py-1 my-2 text-base text-gray-700 bg-gray-100 border border-gray-300 rounded outline-none appearance-none bg-opacity-50 focus:border-blue-500 focus:bg-white focus:ring-2 focus:ring-blue-300 leading-8 transition-colors duration-200 ease-in-out'            
+            className='w-full px-3 py-1 my-2 text-base text-gray-700 bg-gray-100 border border-gray-300 rounded outline-none appearance-none bg-opacity-50 focus:border-blue-500 focus:bg-white focus:ring-2 focus:ring-blue-300 leading-8 transition-colors duration-200 ease-in-out'
           />
         </div>
       </section>
@@ -184,22 +185,21 @@ export const FormCreateArticle = () => {
           rules={{ required: true }}
           register={register}
         >
-          <option value={EArticleType['ALMA']}>{EArticleType['ALMA']}</option>
-          <option value={EArticleType['CUERPO']}>{EArticleType['CUERPO']}</option>
-          <option value={EArticleType['ESPIRITU']}>{EArticleType['ESPIRITU']}</option>
+          <option value={EArticleType.ALMA}>{EArticleType.ALMA}</option>
+          <option value={EArticleType.CUERPO}>{EArticleType.CUERPO}</option>
+          <option value={EArticleType.ESPIRITU}>{EArticleType.ESPIRITU}</option>
         </InputSelectBasic>
 
-        
         <InputSelectBasic
           id='category'
           label='Categoria del Artículo'
           rules={{ required: true }}
           register={register}
         >
-          <option value={EArticleCategory['DEPORTES']}>{EArticleCategory['DEPORTES']}</option>
-          <option value={EArticleCategory['NUTRICION']}>{EArticleCategory['NUTRICION']}</option>
-          <option value={EArticleCategory['PSICOLOGIA']}>{EArticleCategory['PSICOLOGIA']}</option>
-          <option value={EArticleCategory['REFLEXIONES']}>{EArticleCategory['REFLEXIONES']}</option>
+          <option value={EArticleCategory.DEPORTES}>{EArticleCategory.DEPORTES}</option>
+          <option value={EArticleCategory.NUTRICION}>{EArticleCategory.NUTRICION}</option>
+          <option value={EArticleCategory.PSICOLOGIA}>{EArticleCategory.PSICOLOGIA}</option>
+          <option value={EArticleCategory.REFLEXIONES}>{EArticleCategory.REFLEXIONES}</option>
         </InputSelectBasic>
       </section>
 

@@ -1,5 +1,7 @@
 import { useEffect, useState } from 'react'
 import { useRouter } from 'next/router'
+import Link from 'next/link'
+import Head from 'next/head'
 
 import { handleFetchErrors } from 'lib/utils/handleFetchErrors'
 import { IArticle, PageWithLayout, ReactNode } from 'lib/types'
@@ -9,7 +11,6 @@ import { AuthLayout } from 'layouts/AuthLayout'
 import { LoaderPage } from 'components/layout/loaders/LoaderPage'
 import { FormEditArticle } from 'components/pages/articulos/FormEditArticle'
 import { EmptyPageContent } from 'components/common/empty/EmptyPageContent'
-import Link from 'next/link'
 import { ComingSoon } from 'components/common/ComingSoon'
 
 export const ArticleDetailPage: PageWithLayout = () => {
@@ -22,7 +23,7 @@ export const ArticleDetailPage: PageWithLayout = () => {
   //   (async () => {
   //     if (router.query.id) {
   //       const { data, error } = await getPostById(router.query.id as string)
-        
+
   //       if (error) {
   //         setIsLoading(false)
   //         handleFetchErrors(error.status, error.message)
@@ -54,9 +55,14 @@ export const ArticleDetailPage: PageWithLayout = () => {
   // )
 }
 
-ArticleDetailPage.getLayout = (page: ReactNode) =>
-<AuthLayout>
-  {page}
-</AuthLayout>
+ArticleDetailPage.getLayout = (page: ReactNode) => (
+  <AuthLayout>
+    <Head>
+      <title>Artículo - LCP Admin</title>
+    </Head>
+
+    {page}
+  </AuthLayout>
+)
 
 export default ArticleDetailPage

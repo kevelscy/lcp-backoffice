@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { useRouter } from 'next/router'
 import Link from 'next/link'
+import Head from 'next/head'
 
 import { IProduct, PageWithLayout, ReactNode } from 'lib/types'
 import { handleFetchErrors } from 'lib/utils/handleFetchErrors'
@@ -28,7 +29,7 @@ export const ShopProductDetailPage: PageWithLayout = () => {
   //         handleFetchErrors(error.status, error.message)
   //         return
   //       }
-  
+
   //       setProduct(data)
   //       setIsLoading(false)
   //     }
@@ -54,9 +55,14 @@ export const ShopProductDetailPage: PageWithLayout = () => {
   // )
 }
 
-ShopProductDetailPage.getLayout = (page: ReactNode) =>
-<AuthLayout>
-  {page}
-</AuthLayout>
+ShopProductDetailPage.getLayout = (page: ReactNode) => (
+  <AuthLayout>
+    <Head>
+      <title>Producto - LCP Admin</title>
+    </Head>
+
+    {page}
+  </AuthLayout>
+)
 
 export default ShopProductDetailPage

@@ -3,7 +3,7 @@ import { Button } from 'components/common/Button'
 const theadLabel = [
   { label: 'Pedido' },
   { label: 'Usuario' },
-  { label: 'Acciones' },
+  { label: 'Acciones' }
 ]
 
 type TPurchaseRecordListProps = {
@@ -16,11 +16,13 @@ type TPurchaseRecordListProps = {
 }
 
 export const PurchaseRecordList = ({ purchaseRecords }: TPurchaseRecordListProps) => {
-  if (purchaseRecords.length === 0 || !purchaseRecords) return (
-    <div className='w-full text-center flex items-center justify-center mt-10'>
-      <span className='text-xl'>Sin Registros de Compra</span>
-    </div>
-  )
+  if (purchaseRecords.length === 0 || !purchaseRecords) {
+    return (
+      <div className='w-full text-center flex items-center justify-center mt-10'>
+        <span className='text-xl'>Sin Registros de Compra</span>
+      </div>
+    )
+  }
 
   return (
     <section className='mt-10'>
@@ -46,17 +48,16 @@ export const PurchaseRecordList = ({ purchaseRecords }: TPurchaseRecordListProps
                 <tr key={purchaseRecord.id}>
                   <td className='p-3 whitespace-nowrap truncate hover:bg-gray-100 border-grey-light border'>
                     <div>
-                        <span className='text-gray-900'>Producto: {purchaseRecord.productId}</span> <br />
-                        <span className='text-gray-500 text-xs'>Fecha: {purchaseRecord.date}</span>
+                      <span className='text-gray-900'>Producto: {purchaseRecord.productId}</span> <br />
+                      <span className='text-gray-500 text-xs'>Fecha: {purchaseRecord.date}</span>
                     </div>
                   </td>
 
-
                   <td className='border-grey-light border hover:bg-gray-100 p-3 whitespace-nowrap truncate'>
                     <div>
-                        <span className='text-gray-900'>Nombre: {purchaseRecord.fullName}</span> <br />
-                        <span className='text-gray-500 text-xs'>Email: {purchaseRecord.email}</span> <br />
-                        <span className='text-gray-500 text-xs'>Teléfono: {purchaseRecord.phone}</span>
+                      <span className='text-gray-900'>Nombre: {purchaseRecord.fullName}</span> <br />
+                      <span className='text-gray-500 text-xs'>Email: {purchaseRecord.email}</span> <br />
+                      <span className='text-gray-500 text-xs'>Teléfono: {purchaseRecord.phone}</span>
                     </div>
                   </td>
 

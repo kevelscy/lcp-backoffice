@@ -1,5 +1,5 @@
 export const BarEditorImage = ({
-  classes = 'w-6 h-6',
+  classes = 'w-6 h-6'
 }) => (
   <svg
     viewBox='0 0 18 18'

@@ -15,7 +15,7 @@ export const useCategoriesProduct = (operations?: TUseProductCategoriesOperation
   const _getAllProductCategories = async () => {
     setIsLoading(true)
     const { data, error } = await getAllProductsCategories()
-      
+
     if (error) {
       setIsLoading(false)
       handleFetchErrors(error.status, error.message)
@@ -29,7 +29,7 @@ export const useCategoriesProduct = (operations?: TUseProductCategoriesOperation
   const _getProductCategoryById = async (id: string) => {
     setIsLoading(true)
     const { data, error } = await getProductCategoryById(id)
-      
+
     if (error) {
       setIsLoading(false)
       handleFetchErrors(error.status, error.message)
@@ -43,7 +43,7 @@ export const useCategoriesProduct = (operations?: TUseProductCategoriesOperation
   const _createProductCategory = async (product: IProductCategoryToCreate) => {
     setIsLoading(true)
     const { data, error } = await createProductCategory(product)
-      
+
     if (error) {
       setIsLoading(false)
       handleFetchErrors(error.status, error.message)
@@ -58,7 +58,7 @@ export const useCategoriesProduct = (operations?: TUseProductCategoriesOperation
   const _updateProductCategoryById = async (id: string, product: IProductCategoryToUpdate) => {
     setIsLoading(true)
     const { data, error } = await updateProductCategoryById(id, product)
-      
+
     if (error) {
       setIsLoading(false)
       handleFetchErrors(error.status, error.message)

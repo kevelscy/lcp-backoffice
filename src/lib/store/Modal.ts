@@ -1,3 +1,4 @@
+/* eslint-disable no-use-before-define */
 import createAtom from 'zustand'
 
 type TModalType = 'default' | 'confirm'
@@ -28,7 +29,6 @@ interface IModalAtomOptional {
   toggleModal?: () => void
 }
 
-
 export const useModalStore = createAtom<IModalAtom>(set => ({
   type: 'default',
   isOpen: false,
@@ -37,12 +37,12 @@ export const useModalStore = createAtom<IModalAtom>(set => ({
   genericContentHtml: '',
 
   // Only Confirm Modal Data
-  confirmFn: (() => () => {}),
+  confirmFn: () => () => {},
   confirmLabel: '¿Esta seguro de tomar esta acción?',
 
   setModal: (modalData) => set(prevState => ({ ...prevState, modalData })),
   setType: (modalType) => set(({ type: modalType })),
   openModal: () => set(({ isOpen: true })),
   closeModal: () => set(({ isOpen: false })),
-  toggleModal: () => set(state => ({ isOpen: !state.isOpen })),
+  toggleModal: () => set(state => ({ isOpen: !state.isOpen }))
 }))

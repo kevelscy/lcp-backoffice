@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import { IFetchReturn } from './http'
 import { IAuthor } from './authors'
 

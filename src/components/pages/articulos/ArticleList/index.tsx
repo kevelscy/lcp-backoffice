@@ -30,13 +30,15 @@ export const ArticleList = () => {
 
   if (isLoading) return <LoaderPage />
 
-  if (!articles.length) return (
-    <EmptyPageContent label='Sin Contenido'>
-      <Link href='/articulos/crear' className='text-blue-500 font-bold'>
+  if (!articles.length) {
+    return (
+      <EmptyPageContent label='Sin Contenido'>
+        <Link href='/articulos/crear' className='text-blue-500 font-bold'>
         Crear Nuevo Artículo
-      </Link>
-    </EmptyPageContent>
-  )
+        </Link>
+      </EmptyPageContent>
+    )
+  }
 
   return (
     <ul className='w-full h-full basicList gap-x-6 gap-y-6'>

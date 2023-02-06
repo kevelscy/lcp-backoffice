@@ -1,7 +1,7 @@
 export const AddImage = ({
   fill = 'none',
   stroke = '#111',
-  classes = '',
+  classes = ''
 }) => (
   <svg
     className={`mx-auto h-12 w-12 text-gray-400 ${classes}`}

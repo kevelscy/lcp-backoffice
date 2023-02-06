@@ -1,9 +1,11 @@
+import Head from 'next/head'
+
 import { PageWithLayout, ReactNode } from 'lib/types'
 
 import { AuthLayout } from 'layouts/AuthLayout'
-import { LinkAsButton } from 'components/common/Button'
 import { DevotionalList } from 'components/pages/devocionales/DevotionalList'
 import { ComingSoon } from 'components/common/ComingSoon'
+import { LinkAsButton } from 'components/common/Button'
 
 export const DevotionalsPage: PageWithLayout = () => {
   return <ComingSoon />
@@ -22,9 +24,13 @@ export const DevotionalsPage: PageWithLayout = () => {
   // )
 }
 
-DevotionalsPage.getLayout = (page: ReactNode) =>
-<AuthLayout>
-  {page}
-</AuthLayout>
+DevotionalsPage.getLayout = (page: ReactNode) => (
+  <AuthLayout>
+    <Head>
+      <title>Devocionales - LCP Admin</title>
+    </Head>
 
+    {page}
+  </AuthLayout>
+)
 export default DevotionalsPage

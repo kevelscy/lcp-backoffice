@@ -9,7 +9,7 @@ export const SignInPage: PageWithLayout = () => {
   return (
     <div className='h-screen flex flex-col justify-center items-center'>
       <section className='max-w-lg mx-auto w-full'>
-        <h4 className='text-xl font-bold text-center'>Iniciar Sesion</h4>
+        <h4 className='text-xl font-bold text-center dark:text-white'>Iniciar Sesion</h4>
         <FormSignIn />
       </section>
     </div>

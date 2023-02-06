@@ -1,7 +1,4 @@
-import { config } from 'config'
 import { IDevotionalToCreate, IDevotionalToUpdate, IReturnDevotional, IReturnDevotionals } from 'lib/types'
-
-const { API } = config
 
 export const getAllDevotionals = async (): Promise<IReturnDevotionals> => {
   const res = await fetch('/api/devotionals')

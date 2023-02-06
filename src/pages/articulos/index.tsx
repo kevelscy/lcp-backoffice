@@ -1,9 +1,11 @@
+import Head from 'next/head'
+
 import { PageWithLayout, ReactNode } from 'lib/types'
 
 import { AuthLayout } from 'layouts/AuthLayout'
-import { LinkAsButton } from 'components/common/Button'
 import { ArticleList } from 'components/pages/articulos/ArticleList'
 import { ComingSoon } from 'components/common/ComingSoon'
+import { LinkAsButton } from 'components/common/Button'
 
 export const ArticlesPage: PageWithLayout = () => {
   return <ComingSoon />
@@ -24,6 +26,10 @@ export const ArticlesPage: PageWithLayout = () => {
 
 ArticlesPage.getLayout = (page: ReactNode) => (
   <AuthLayout>
+    <Head>
+      <title>Artículos - LCP Admin</title>
+    </Head>
+
     {page}
   </AuthLayout>
 )

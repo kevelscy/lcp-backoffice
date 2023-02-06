@@ -12,12 +12,12 @@ export const useProducts = (operations?: TUseProductsOperations) => {
   const [products, setProducts] = useState<IProduct[]>([])
   const [productDetail, setProductDetail] = useState<IProduct>(null)
   const [isLoading, setIsLoading] = useState(false)
-  const { openModal, isOpen, setModal } = useModalStore()
+  const { setModal } = useModalStore()
 
   const _getAllProducts = async () => {
     setIsLoading(true)
     const { data, error } = await getAllProducts()
-      
+
     if (error) {
       setIsLoading(false)
       handleFetchErrors(error.status, error.message)
@@ -31,7 +31,7 @@ export const useProducts = (operations?: TUseProductsOperations) => {
   const _getProductById = async (id: string) => {
     setIsLoading(true)
     const { data, error } = await getProductById(id)
-      
+
     if (error) {
       setIsLoading(false)
       handleFetchErrors(error.status, error.message)
@@ -45,7 +45,7 @@ export const useProducts = (operations?: TUseProductsOperations) => {
   const _createProduct = async (product: IProductToCreate) => {
     setIsLoading(true)
     const { data, error } = await createProduct(product)
-      
+
     if (error) {
       setIsLoading(false)
       handleFetchErrors(error.status, error.message)
@@ -60,7 +60,7 @@ export const useProducts = (operations?: TUseProductsOperations) => {
   const _updateProductById = async (id: string, product: IProductToUpdate) => {
     setIsLoading(true)
     const { data, error } = await updateProductById(id, product)
-      
+
     if (error) {
       setIsLoading(false)
       handleFetchErrors(error.status, error.message)

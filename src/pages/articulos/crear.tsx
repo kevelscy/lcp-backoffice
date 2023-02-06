@@ -1,3 +1,5 @@
+import Head from 'next/head'
+
 import { PageWithLayout, ReactNode } from 'lib/types'
 
 import { AuthLayout } from 'layouts/AuthLayout'
@@ -17,9 +19,14 @@ export const CreateArticlesPage: PageWithLayout = () => {
   // )
 }
 
-CreateArticlesPage.getLayout = (page: ReactNode) =>
-<AuthLayout>
-  {page}
-</AuthLayout>
+CreateArticlesPage.getLayout = (page: ReactNode) => (
+  <AuthLayout>
+    <Head>
+      <title>Crear Artículo - LCP Admin</title>
+    </Head>
+
+    {page}
+  </AuthLayout>
+)
 
 export default CreateArticlesPage

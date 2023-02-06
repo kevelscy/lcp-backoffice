@@ -1,5 +1,5 @@
-import { ReactNode, useState } from 'react'
 import { useRouter } from 'next/router'
+import { ReactNode } from 'react'
 import Link from 'next/link'
 
 type LinkNavigationProps = {
@@ -13,7 +13,7 @@ type LinkNavigationProps = {
   '/multimedia' |
   '/articulos'
   label: string
-  icon?:  ReactNode
+  icon?: ReactNode
 }
 
 export const LinkNavigation = ({ to, label, icon }: LinkNavigationProps) => {
@@ -24,7 +24,7 @@ export const LinkNavigation = ({ to, label, icon }: LinkNavigationProps) => {
       href={`${to}`}
       className={
         `border-2 border-transparent flex items-center p-2 group group-hover:text-black text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-[#282828] 
-        ${ router.pathname.includes(to) && 'border-2 border-gray-300 bg-gray-300 dark:bg-[#282828] dark:border-gray-100 dark:border-2' } select-none`
+        ${router.pathname.includes(to) && 'border-2 border-gray-300 bg-gray-300 dark:bg-[#282828] dark:border-gray-100 dark:border-2'} select-none`
       }
     >
       <div>{icon}</div>

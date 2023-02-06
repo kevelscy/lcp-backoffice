@@ -1,5 +1,4 @@
 export const Modal = ({ children, Portal, hide }) => {
-
   const handleClickBackdrop = (e) => {
     const { id } = e.target as HTMLDivElement
     if (id === 'modal') return hide()

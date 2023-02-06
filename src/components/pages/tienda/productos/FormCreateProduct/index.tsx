@@ -1,4 +1,4 @@
-/* eslint-disable @next/next/no-img-element */
+
 import { useEffect, useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { useRouter } from 'next/router'
@@ -9,7 +9,6 @@ import { handleFetchErrors } from 'lib/utils/handleFetchErrors'
 import { handleOnlyNumbers } from 'lib/utils/handleOnlyNumbers'
 import { IProductCategory, IProductToCreate } from 'lib/types'
 import { createProduct } from 'lib/services/shop/products'
-import { useAuthStore } from 'lib/store/Auth'
 import { slugify } from 'lib/utils/slugify'
 
 import { InputBasic, InputSelectBasic } from 'components/common/inputs/InputBasic'
@@ -19,13 +18,12 @@ import { Button } from 'components/common/Button'
 import { UploadImage } from './UploadImage'
 
 export const FormCreateProduct = () => {
-  const { register, handleSubmit, watch, getValues, formState: { errors } } = useForm<IProductToCreate>()
+  const { register, handleSubmit, watch, formState: { errors } } = useForm<IProductToCreate>()
   const [productCategories, setProductCategories] = useState<IProductCategory[]>([])
   const [imageToUpload, setImageToUpload] = useState(null)
   const [isLoading, setIsLoading] = useState(true)
   const publishedWatcher = watch('published')
   const titleWatcher = watch('title')
-  const { auth } = useAuthStore()
   const router = useRouter()
 
   const onChange = (imageList, addUpdateIndex) => {
@@ -109,6 +107,7 @@ export const FormCreateProduct = () => {
           register={register}
           rules={{ required: false }}
           placeholder='Titulo'
+          errors={errors}
         />
 
         <div className='w-full relative'>
@@ -125,7 +124,7 @@ export const FormCreateProduct = () => {
             type='text'
             value={slugify(titleWatcher || '')}
             placeholder='Slug del Artículo'
-            className='w-full px-3 py-1 my-2 text-base text-gray-700 bg-gray-100 border border-gray-300 rounded outline-none appearance-none bg-opacity-50 focus:border-blue-500 focus:bg-white focus:ring-2 focus:ring-blue-300 leading-8 transition-colors duration-200 ease-in-out'            
+            className='w-full px-3 py-1 my-2 text-base text-gray-700 bg-gray-100 border border-gray-300 rounded outline-none appearance-none bg-opacity-50 focus:border-blue-500 focus:bg-white focus:ring-2 focus:ring-blue-300 leading-8 transition-colors duration-200 ease-in-out'
           />
         </div>
       </section>
@@ -139,6 +138,7 @@ export const FormCreateProduct = () => {
           rules={{ required: false, maxLength: { value: 6, message: '* Maximo 6 caracteres' } }}
           placeholder='Precio'
           onKeyPress={handleOnlyNumbers}
+          errors={errors}
         />
 
         <InputSelectBasic
@@ -163,6 +163,7 @@ export const FormCreateProduct = () => {
           register={register}
           rules={{ required: false }}
           placeholder='Descripción'
+          errors={errors}
         />
       </section>
 

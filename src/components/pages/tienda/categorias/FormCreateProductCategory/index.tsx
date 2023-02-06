@@ -1,9 +1,7 @@
-/* eslint-disable @next/next/no-img-element */
+
 import { useForm } from 'react-hook-form'
 import { useRouter } from 'next/router'
-import { useState } from 'react'
 
-import { useCategoriesProduct } from 'lib/hooks/shop/useProductCategories'
 import { IProductCategoryToCreate } from 'lib/types'
 import { slugify } from 'lib/utils/slugify'
 
@@ -15,7 +13,7 @@ interface IFormCreateProductCategoryProps {
 }
 
 export const FormCreateProductCategory = ({ createProductCategory }: IFormCreateProductCategoryProps) => {
-  const { register, handleSubmit, watch, formState: { errors } } = useForm<IProductCategoryToCreate>()
+  const { register, handleSubmit, watch } = useForm<IProductCategoryToCreate>()
   const titleWatcher = watch('title')
   const router = useRouter()
 
@@ -53,7 +51,7 @@ export const FormCreateProductCategory = ({ createProductCategory }: IFormCreate
             type='text'
             value={slugify(titleWatcher || '')}
             placeholder='Slug del Artículo'
-            className='w-full px-3 py-1 my-2 text-base text-gray-700 bg-gray-100 border border-gray-300 rounded outline-none appearance-none bg-opacity-50 focus:border-blue-500 focus:bg-white focus:ring-2 focus:ring-blue-300 leading-8 transition-colors duration-200 ease-in-out'            
+            className='w-full px-3 py-1 my-2 text-base text-gray-700 bg-gray-100 border border-gray-300 rounded outline-none appearance-none bg-opacity-50 focus:border-blue-500 focus:bg-white focus:ring-2 focus:ring-blue-300 leading-8 transition-colors duration-200 ease-in-out'
           />
         </div>
       </section>

@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import { IFetchReturn } from './http'
 
 export type TBannerType = 'MOBILE' | 'DESKTOP'
@@ -20,7 +21,6 @@ export interface IBannerToUpdate {
     desktop: FileList
   }
 }
-
 
 export interface IBanner {
   id: string

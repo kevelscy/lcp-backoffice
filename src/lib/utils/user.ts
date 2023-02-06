@@ -1,4 +1,4 @@
-  
+
 import Cookies from 'js-cookie'
 
 const SERVER_URL = process.env.NEXT_PUBLIC_SERVER_URL
@@ -8,9 +8,9 @@ const registerUserFetcher = async (url, username, email, password) => {
     method: 'POST',
     headers: {
       Accept: 'application/json',
-      'Content-Type': 'application/json',
+      'Content-Type': 'application/json'
     },
-    body: JSON.stringify({ username, email, password }),
+    body: JSON.stringify({ username, email, password })
   })
 
   if (!res.ok) {
@@ -18,8 +18,8 @@ const registerUserFetcher = async (url, username, email, password) => {
       data: null,
       error: {
         message: res.json(),
-        status: res.status,
-      },
+        status: res.status
+      }
     }
   }
 
@@ -33,9 +33,9 @@ const loginUserFetcher = async (url, identifier, password) => {
     method: 'POST',
     headers: {
       Accept: 'application/json',
-      'Content-Type': 'application/json',
+      'Content-Type': 'application/json'
     },
-    body: JSON.stringify({ identifier, password }),
+    body: JSON.stringify({ identifier, password })
   })
 
   if (!res.ok) {
@@ -43,8 +43,8 @@ const loginUserFetcher = async (url, identifier, password) => {
       data: null,
       error: {
         message: res.json(),
-        status: res.status,
-      },
+        status: res.status
+      }
     }
   }
 
@@ -57,8 +57,8 @@ const getUserFetcher = async (token) => {
   const res = await fetch(`${SERVER_URL}/users/me`, {
     method: 'GET',
     headers: {
-      Authorization: `Bearer ${token}`,
-    },
+      Authorization: `Bearer ${token}`
+    }
   })
 
   if (!res.ok) {
@@ -66,8 +66,8 @@ const getUserFetcher = async (token) => {
       data: null,
       error: {
         message: res.json(),
-        status: res.status,
-      },
+        status: res.status
+      }
     }
   }
 

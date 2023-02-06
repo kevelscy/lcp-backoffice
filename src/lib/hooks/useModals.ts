@@ -5,13 +5,13 @@ interface IUseNotificationParams {
   message: string
 }
 
-export const useNotification = ({ type, message} :IUseNotificationParams) => {
+export const useNotification = ({ type, message } :IUseNotificationParams) => {
   const TYPE_NOTIFICATIONS = {
-    'info': toast.info(message),
-    'success': toast.success(message),
-    'warning': toast.warning(message),
-    'error': toast.error(message),
-    'default': toast(message),
+    info: toast.info(message),
+    success: toast.success(message),
+    warning: toast.warning(message),
+    error: toast.error(message),
+    default: toast(message)
   }
 
   TYPE_NOTIFICATIONS[type] || toast(message)

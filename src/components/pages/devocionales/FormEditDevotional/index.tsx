@@ -1,9 +1,9 @@
-/* eslint-disable @next/next/no-img-element */
 import { useForm } from 'react-hook-form'
+
 import { useRouter } from 'next/router'
 import { useState } from 'react'
 
-import { IBanner, IBannerToUpdate, IDevotional } from 'lib/types'
+import { IBannerToUpdate, IDevotional } from 'lib/types'
 import { handleFetchErrors } from 'lib/utils/handleFetchErrors'
 import { updateBannerById } from 'lib/services/banners'
 
@@ -11,16 +11,15 @@ import { InputBasic } from 'components/common/inputs/InputBasic'
 import { Button } from 'components/common/Button'
 
 export const FormEditDevotional = ({ id, title, file }: IDevotional) => {
-  const router = useRouter()
   const { register, handleSubmit } = useForm<IBannerToUpdate>()
-  const [imageToUpload, setImageToUpload] = useState(null)
-  const [isLoading, setIsLoading] = useState(false)
+  const [imageToUpload] = useState(null)
+  const [, setIsLoading] = useState(false)
+  const router = useRouter()
 
-  const onChange = (imageList, addUpdateIndex) => {
-    console.log(imageList[0], addUpdateIndex)
-    setImageToUpload(imageList)
-  }
-
+  // const onChange = (imageList, addUpdateIndex) => {
+  //   console.log(imageList[0], addUpdateIndex)
+  //   setImageToUpload(imageList)
+  // }
 
   const onSubmit = async (dataForm: IBannerToUpdate) => {
     setIsLoading(true)

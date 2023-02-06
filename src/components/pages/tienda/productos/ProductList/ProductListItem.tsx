@@ -54,14 +54,14 @@ export const ProductListItem = ({ id, title, category, description, image, creat
               {
                 image
                 // eslint-disable-next-line @next/next/no-img-element
-                ? <img
+                  ? <img
                     className='w-10 h-10 rounded-md object-cover'
                     width={250}
                     height={250}
                     src={image.url}
                     alt='product'
                   />
-                : <span>Sin Imagen</span>
+                  : <span>Sin Imagen</span>
               }
             </div>
 

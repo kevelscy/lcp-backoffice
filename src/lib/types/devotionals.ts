@@ -22,7 +22,6 @@ export interface IDevotional {
   updatedAt: string
 }
 
-
 export interface IReturnDevotionals extends IFetchReturn {
   data: IDevotional[]
 }

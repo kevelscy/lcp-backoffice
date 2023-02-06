@@ -1,7 +1,4 @@
-import { config } from 'config'
-import { IProductToCreate, IProductToUpdate, IFetchReturn, IReturnProducts, IReturnProduct } from 'lib/types'
-
-const { API } = config
+import { IProductToCreate, IProductToUpdate, IReturnProducts, IReturnProduct } from 'lib/types'
 
 export const getAllProducts = async (): Promise<IReturnProducts> => {
   const res = await fetch('/api/shop/products')

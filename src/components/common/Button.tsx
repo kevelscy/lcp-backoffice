@@ -17,7 +17,7 @@ export const Button = ({
   disabled = false,
   type = 'button',
   classes = '',
-  style,
+  style
 }: ButtonProps) => (
   <button
     type={type}
@@ -30,7 +30,7 @@ export const Button = ({
   </button>
 )
 
-interface LinkAsButton {
+interface LinkAsButtonProps {
   children?: ReactNode
   classes?: string
   to: string
@@ -41,8 +41,8 @@ export const LinkAsButton = ({
   children,
   classes = '',
   to,
-  style,
-}: LinkAsButton) => (
+  style
+}: LinkAsButtonProps) => (
   <Link
     href={to}
     className={`px-4 py-2 inline-block disabled:opacity-50 disabled:cursor-not-allowed bg-black text-white uppercase rounded-md focus:outline-none text-center text-sm border-2 border-black dark:bg-transparent dark:border-white dark:border-2 dark:hover:bg-white dark:hover:text-black ${classes}`}

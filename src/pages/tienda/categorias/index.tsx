@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import Head from 'next/head'
 
 import { useCategoriesProduct } from 'lib/hooks/shop/useProductCategories'
 import { PageWithLayout, ReactNode } from 'lib/types'
@@ -8,8 +9,8 @@ import { ProductCategoryItem } from 'components/pages/tienda/categorias/ProductC
 import { ProductCategoryList } from 'components/pages/tienda/categorias/ProductCategoryList'
 import { EmptyPageContent } from 'components/common/empty/EmptyPageContent'
 import { LoaderPage } from 'components/layout/loaders/LoaderPage'
-import { LinkAsButton } from 'components/common/Button'
 import { ComingSoon } from 'components/common/ComingSoon'
+import { LinkAsButton } from 'components/common/Button'
 
 export const ShopProductCategoriesPage: PageWithLayout = () => {
   return <ComingSoon />
@@ -50,9 +51,14 @@ export const ShopProductCategoriesPage: PageWithLayout = () => {
   // )
 }
 
-ShopProductCategoriesPage.getLayout = (page: ReactNode) =>
-<AuthLayout>
-  {page}
-</AuthLayout>
+ShopProductCategoriesPage.getLayout = (page: ReactNode) => (
+  <AuthLayout>
+    <Head>
+      <title>Categorias - LCP Admin</title>
+    </Head>
+
+    {page}
+  </AuthLayout>
+)
 
 export default ShopProductCategoriesPage

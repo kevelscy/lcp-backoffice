@@ -27,11 +27,12 @@ export default function UsuariosPage () {
   // )
 }
 
-UsuariosPage.getLayout = (page: ReactElement) =>
-<AuthLayout>
-  <Head>
-    <title>Usuarios - LCP Admin</title>
-  </Head>
+UsuariosPage.getLayout = (page: ReactElement) => (
+  <AuthLayout>
+    <Head>
+      <title>Usuarios - LCP Admin</title>
+    </Head>
 
-  {page}
-</AuthLayout>
+    {page}
+  </AuthLayout>
+)

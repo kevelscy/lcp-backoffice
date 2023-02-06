@@ -36,7 +36,7 @@ export const AuthLayout = ({ children }: { children: ReactNode | ReactElement })
         return
       }
 
-      toast('¡Sesión Recuperada!', { type: 'success' })
+      toast('Sesión Recuperada', { type: 'success' })
       setAuth(data)
     })()
   // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -54,7 +54,7 @@ export const AuthLayout = ({ children }: { children: ReactNode | ReactElement })
     <div className='authLayout relative bg-white dark:bg-[#111]'>
       <Drawer />
 
-    <main className='authLayout__content max-w-6xl mx-auto overflow-auto px-4 pt-4 pb-28'>
+      <main className='authLayout__content max-w-6xl mx-auto overflow-auto px-4 pt-4 pb-28'>
         {children}
       </main>
 
@@ -62,4 +62,3 @@ export const AuthLayout = ({ children }: { children: ReactNode | ReactElement })
     </div>
   )
 }
-

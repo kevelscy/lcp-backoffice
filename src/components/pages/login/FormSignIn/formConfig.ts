@@ -11,11 +11,11 @@ interface IFormConfig {
   }
 }
 
-export const rules: IFormConfig = {
+export const rulesForm: IFormConfig = {
   password: {
     required: { value: true, message: 'Contraseña obligatoria' },
     maxLength: { value: 50, message: 'Maximo 50 Caracteres' },
-    minLength: { value: 3, message: 'Minimo 3 Caracteres' },
+    minLength: { value: 3, message: 'Minimo 3 Caracteres' }
   },
 
   email: {
@@ -23,7 +23,7 @@ export const rules: IFormConfig = {
     pattern: {
       value:
         /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/,
-      message: 'Coloque un correo valido',
-    },
-  },
+      message: 'Coloque un correo valido'
+    }
+  }
 }

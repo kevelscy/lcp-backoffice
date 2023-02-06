@@ -1,9 +1,6 @@
-import { config } from 'config'
 import { IProductCategoryToCreate, IProductCategoryToUpdate, IReturnProductCategories, IReturnProductCategory } from 'lib/types'
 
-const { API } = config
-
-export const getAllProductsCategories= async (): Promise<IReturnProductCategories> => {
+export const getAllProductsCategories = async (): Promise<IReturnProductCategories> => {
   const res = await fetch('/api/shop/product-categories')
   const { data, error } = await res.json()
 

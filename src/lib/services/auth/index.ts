@@ -24,7 +24,7 @@ export const signIn = async (email: string, password: string): Promise<IReturnAu
 }
 
 export const getAuthMe = async (token: string): Promise<IReturnAuth> => {
-  const options: RequestInit = { headers: { 'Authorization': `Bearer ${token}` } }
+  const options: RequestInit = { headers: { Authorization: `Bearer ${token}` } }
 
   const res = await fetch('/api/auth/me', options)
   const { data, error } = await res.json()
@@ -43,7 +43,7 @@ export const getAuthMe = async (token: string): Promise<IReturnAuth> => {
 }
 
 export const signOut = async (accessToken: string): Promise<IReturnAuth> => {
-  const options: RequestInit = { method: 'POST', headers: { 'Authorization': `Bearer ${accessToken}` } }
+  const options: RequestInit = { method: 'POST', headers: { Authorization: `Bearer ${accessToken}` } }
 
   const res = await fetch('/api/auth/sign-out', options)
   const { data, error } = await res.json()

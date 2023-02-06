@@ -5,19 +5,21 @@ import { ConfirmModal } from './ConfirmModal'
 // import { GenericModal } from './GenericModal'
 
 export const GlobalModal = () => {
-  const { isOpen, type,  closeModal, confirmFn, confirmLabel } = useModalStore()
+  const { isOpen, type, closeModal, confirmFn, confirmLabel } = useModalStore()
   // const [Modal,,, isOpen] = useModal('confirm', { initialValue: false })
-  
+
   // if (isOpen === 'confirm') return <ConfirmModal Modal={Modal} />
   // if (type === 'loader') return <LoaderModal Modal={Modal} />
   // if (type === 'error') return <ErrorModal Modal={Modal} />
   // if (!isOpen) return null
-  
-  if (type === 'confirm' && isOpen) return <ConfirmModal
-    closeModal={closeModal}
-    confirmFn={confirmFn}
-    confirmLabel={confirmLabel} 
-  />
+
+  if (type === 'confirm' && isOpen) {
+    return <ConfirmModal
+      closeModal={closeModal}
+      confirmFn={confirmFn}
+      confirmLabel={confirmLabel}
+    />
+  }
 
   return null
 }

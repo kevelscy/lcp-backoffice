@@ -1,12 +1,12 @@
+import { IIconsBasicProps } from 'lib/types'
 
-export const LockClosed = () => (
+export const LockClosed = ({ classes }: IIconsBasicProps) => (
   <svg
     xmlns='http://www.w3.org/2000/svg'
     viewBox='0 0 20 20'
-    fill='currentColor'
-    height={24}
-    className={`w-5 h-5 text-gray-100 group-hover:text-white`}
     aria-hidden='true'
+    className={`flex-shrink-0 w-6 h-6 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 ${classes}`}
+    fill='currentColor'
   >
     <path
       fillRule='evenodd'

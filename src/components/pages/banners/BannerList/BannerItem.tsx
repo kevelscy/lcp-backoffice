@@ -1,4 +1,4 @@
-/* eslint-disable @next/next/no-img-element */
+
 import usePortal from 'react-cool-portal'
 import { toast } from 'react-toastify'
 
@@ -47,7 +47,7 @@ export const BannerItem = ({ id, title, image, refreshBanners, setIsLoading }: I
         </div>
       </Modal>
 
-      <li className='bg-slate-100 dark:bg-[#1a1a1a] dark:border-gray-500 dark:border-2 rounded-md p-3'>
+      <li className='bg-slate-100 border-2 border-gray-300 dark:bg-[#1a1a1a] dark:border-gray-500 rounded-md p-3'>
         <h6 className='font-bold text-lg dark:text-white'>{title}</h6>
 
         <section className='flex flex-col sm:flex-row justify-between items-center gap-x-4 mt-2'>

@@ -2,7 +2,7 @@ export const Ticket = ({
   width = '24px',
   height = '24px',
   fill = 'none',
-  classes = 'w-6 h-6',
+  classes = 'w-6 h-6'
 }) => (
   <svg
     width={width}

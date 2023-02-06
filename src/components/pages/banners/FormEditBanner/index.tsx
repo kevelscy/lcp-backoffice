@@ -1,4 +1,4 @@
-/* eslint-disable @next/next/no-img-element */
+
 import { useState } from 'react'
 import { useForm } from 'react-hook-form'
 
@@ -39,8 +39,9 @@ export const FormEditBanner = ({ id, title, image }: IBanner) => {
       handleFetchErrors(error.status, error.message)
       return
     }
-    
+
     setIsLoading(false)
+    toast('Banner creado', { type: 'success' })
     router.push('/banners')
   }
 
@@ -48,11 +49,19 @@ export const FormEditBanner = ({ id, title, image }: IBanner) => {
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} className='mt-2'>
-      <section className='rounded-md bg-slate-200 w-full h-full p-4'>
+      <section className='flex justify-between items-start rounded-md bg-slate-200 w-full h-full p-4'>
         <img
-          src={image.url}
-          height={image.height}
-          width={image.width}
+          src={image.mobile.url}
+          height={image.mobile.height}
+          width={image.mobile.width}
+          alt={title}
+          className='rounded-md mt-2 mx-auto max-h-96 object-contain'
+        />
+
+        <img
+          src={image.desktop.url}
+          height={image.desktop.height}
+          width={image.desktop.width}
           alt={title}
           className='rounded-md mt-2 mx-auto max-h-96 object-contain'
         />

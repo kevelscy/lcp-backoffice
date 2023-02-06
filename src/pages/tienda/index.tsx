@@ -1,8 +1,10 @@
+import { useRef } from 'react'
+import Head from 'next/head'
+
 import { PageWithLayout, ReactNode } from 'lib/types'
 
 import { AuthLayout } from 'layouts/AuthLayout'
 import { LinkAsButton } from 'components/common/Button'
-import { useRef } from 'react'
 
 import { ComingSoon } from 'components/common/ComingSoon'
 
@@ -50,6 +52,10 @@ export const ShopPage: PageWithLayout = () => {
 
 ShopPage.getLayout = (page: ReactNode) => (
   <AuthLayout>
+    <Head>
+      <title>Tienda - LCP Admin</title>
+    </Head>
+
     {page}
   </AuthLayout>
 )

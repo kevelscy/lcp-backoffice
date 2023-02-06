@@ -18,11 +18,12 @@ export default function MultimediaPage () {
   // )
 }
 
-MultimediaPage.getLayout = (page: ReactElement) =>
-<AuthLayout>
-  <Head>
-    <title>Multimedia - LCP Admin</title>
-  </Head>
+MultimediaPage.getLayout = (page: ReactElement) => (
+  <AuthLayout>
+    <Head>
+      <title>Multimedia - LCP Admin</title>
+    </Head>
 
-  {page}
-</AuthLayout>
+    {page}
+  </AuthLayout>
+)

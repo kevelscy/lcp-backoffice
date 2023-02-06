@@ -1,8 +1,10 @@
+import Head from 'next/head'
+
+import { useCategoriesProduct } from 'lib/hooks/shop/useProductCategories'
 import { PageWithLayout, ReactNode } from 'lib/types'
 
 import { AuthLayout } from 'layouts/AuthLayout'
 import { FormCreateProductCategory } from 'components/pages/tienda/categorias/FormCreateProductCategory'
-import { useCategoriesProduct } from 'lib/hooks/shop/useProductCategories'
 import { LoaderPage } from 'components/layout/loaders/LoaderPage'
 import { ComingSoon } from 'components/common/ComingSoon'
 
@@ -23,9 +25,14 @@ export const CreateShopProductCategoryPage: PageWithLayout = () => {
   // )
 }
 
-CreateShopProductCategoryPage.getLayout = (page: ReactNode) =>
-<AuthLayout>
-  {page}
-</AuthLayout>
+CreateShopProductCategoryPage.getLayout = (page: ReactNode) => (
+  <AuthLayout>
+    <Head>
+      <title>Crear Categoria - LCP Admin</title>
+    </Head>
+
+    {page}
+  </AuthLayout>
+)
 
 export default CreateShopProductCategoryPage

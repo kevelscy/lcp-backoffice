@@ -1,4 +1,4 @@
-/* eslint-disable @next/next/no-img-element */
+
 import usePortal from 'react-cool-portal'
 import { toast } from 'react-toastify'
 import { useState } from 'react'
@@ -58,11 +58,11 @@ export const ArticleItem = ({ id, title, image, author, published, category, typ
             width={image.width}
             alt={title}
             className={`rounded-md ${isLoadingImg ? 'skeleton w-full h-[300px]' : 'block'}`}
-            onLoadingComplete={() => {setIsLoadingImg(false)}}
+            onLoadingComplete={() => { setIsLoadingImg(false) }}
           />
 
           <div className='absolute bottom-1 right-2'>
-            <span className={`font-semibold text-white px-2 py-1 rounded-md ${ published ? 'bg-green-500' : 'bg-red-500' }`}>
+            <span className={`font-semibold text-white px-2 py-1 rounded-md ${published ? 'bg-green-500' : 'bg-red-500'}`}>
               { published ? 'Publicado' : 'No Publicado' }
             </span>
           </div>

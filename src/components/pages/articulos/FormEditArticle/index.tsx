@@ -1,28 +1,26 @@
-/* eslint-disable @next/next/no-img-element */
 import { useEditor, EditorContent } from '@tiptap/react'
 import StarterKit from '@tiptap/starter-kit'
 import Image from '@tiptap/extension-image'
 import { useForm } from 'react-hook-form'
 import { useRouter } from 'next/router'
-import { toast } from 'react-toastify'
 import { useState } from 'react'
 
 import { IArticleToUpdate, IArticle, EArticleType, EArticleCategory } from 'lib/types'
 import { updatePostById } from 'lib/services/posts'
 
-import { InputBasic, InputSelectBasic } from 'components/common/inputs'
+import { InputBasic, InputSelectBasic, Toggle } from 'components/common/inputs'
 import { MenuBar } from 'components/common/Editor/MenuBar'
-import { Toggle } from 'components/common/inputs'
+
 import { Button } from 'components/common/Button'
 import { UploadImage } from './UploadImage'
 import { handleFetchErrors } from 'lib/utils/handleFetchErrors'
 import { slugify } from 'lib/utils/slugify'
 
 export const FormEditArticle = ({ id, title, image, slug, category, type, content, published }: IArticle) => {
-  const { register, handleSubmit, watch, formState: { errors } } = useForm<IArticleToUpdate>()
+  const { register, handleSubmit, watch } = useForm<IArticleToUpdate>()
   const editor = useEditor({ content, extensions: [StarterKit, Image] })
   const [imageToUpload, setImageToUpload] = useState(null)
-  const [isLoading, setIsLoading] = useState(false)
+  const [, setIsLoading] = useState(false)
   const publishedWatcher = watch('published')
   const titleWatcher = watch('title')
   const router = useRouter()
@@ -110,7 +108,7 @@ export const FormEditArticle = ({ id, title, image, slug, category, type, conten
             placeholder='Slug del Artículo'
             value={slugify(titleWatcher || title)}
             defaultValue={slug}
-            className='w-full px-3 py-1 my-2 text-base text-gray-700 bg-gray-100 border border-gray-300 rounded outline-none appearance-none bg-opacity-50 focus:border-blue-500 focus:bg-white focus:ring-2 focus:ring-blue-300 leading-8 transition-colors duration-200 ease-in-out'            
+            className='w-full px-3 py-1 my-2 text-base text-gray-700 bg-gray-100 border border-gray-300 rounded outline-none appearance-none bg-opacity-50 focus:border-blue-500 focus:bg-white focus:ring-2 focus:ring-blue-300 leading-8 transition-colors duration-200 ease-in-out'
           />
         </div>
       </section>
@@ -123,12 +121,11 @@ export const FormEditArticle = ({ id, title, image, slug, category, type, conten
           register={register}
         >
           <option value={type}>{type}</option>
-          <option value={EArticleType['ALMA']}>{EArticleType['ALMA']}</option>
-          <option value={EArticleType['CUERPO']}>{EArticleType['CUERPO']}</option>
-          <option value={EArticleType['ESPIRITU']}>{EArticleType['ESPIRITU']}</option>
+          <option value={EArticleType.ALMA}>{EArticleType.ALMA}</option>
+          <option value={EArticleType.CUERPO}>{EArticleType.CUERPO}</option>
+          <option value={EArticleType.ESPIRITU}>{EArticleType.ESPIRITU}</option>
         </InputSelectBasic>
 
-        
         <InputSelectBasic
           id='category'
           label='Categoria del Artículo'
@@ -136,10 +133,10 @@ export const FormEditArticle = ({ id, title, image, slug, category, type, conten
           register={register}
         >
           <option value={category}>{category}</option>
-          <option value={EArticleCategory['DEPORTES']}>{EArticleCategory['DEPORTES']}</option>
-          <option value={EArticleCategory['NUTRICION']}>{EArticleCategory['NUTRICION']}</option>
-          <option value={EArticleCategory['PSICOLOGIA']}>{EArticleCategory['PSICOLOGIA']}</option>
-          <option value={EArticleCategory['REFLEXIONES']}>{EArticleCategory['REFLEXIONES']}</option>
+          <option value={EArticleCategory.DEPORTES}>{EArticleCategory.DEPORTES}</option>
+          <option value={EArticleCategory.NUTRICION}>{EArticleCategory.NUTRICION}</option>
+          <option value={EArticleCategory.PSICOLOGIA}>{EArticleCategory.PSICOLOGIA}</option>
+          <option value={EArticleCategory.REFLEXIONES}>{EArticleCategory.REFLEXIONES}</option>
         </InputSelectBasic>
       </section>
 

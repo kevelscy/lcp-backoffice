@@ -1,7 +1,4 @@
-import { config } from 'config'
 import { IBannerToCreate, IBannerToUpdate, IReturnBanner, IReturnBanners } from 'lib/types'
-
-const { API } = config
 
 export const getAllBanners = async (): Promise<IReturnBanners> => {
   const res = await fetch('/api/banners')

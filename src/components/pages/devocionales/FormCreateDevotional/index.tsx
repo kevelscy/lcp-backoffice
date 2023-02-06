@@ -1,4 +1,4 @@
-/* eslint-disable @next/next/no-img-element */
+
 import { useEffect, useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { useRouter } from 'next/router'
@@ -35,7 +35,7 @@ export const FormCreateDevotional = () => {
       return
     }
 
-    if (file.size > config.LIMIT_FILE_SIZE) {
+    if (file.size > config.FILE_LIMITS.DEVOTIONALS.FILE_SIZE) {
       toast('Solo archivos menos de 10MB', { type: 'error' })
       setIsLoading(false)
       return

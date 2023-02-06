@@ -1,4 +1,4 @@
-/* eslint-disable @next/next/no-img-element */
+
 import type { ImageListType } from 'react-images-uploading'
 import { useForm } from 'react-hook-form'
 import { useRouter } from 'next/router'
@@ -23,11 +23,9 @@ export const FormCreateBanner = () => {
   const router = useRouter()
 
   const onChange = (image: ImageListType, addUpdateIndex?: number[], type?: 'mobile' | 'desktop') => {
-    if (type === 'mobile')
-      setBannerImg(prevState => ({ ...prevState, mobile: image }))
+    if (type === 'mobile') { setBannerImg(prevState => ({ ...prevState, mobile: image })) }
 
-    if (type === 'desktop')
-      setBannerImg(prevState => ({ ...prevState, desktop: image }))
+    if (type === 'desktop') { setBannerImg(prevState => ({ ...prevState, desktop: image })) }
   }
 
   const onSubmit = async (dataForm: IBannerToCreate) => {
@@ -59,7 +57,7 @@ export const FormCreateBanner = () => {
 
     const bannerToCreate: IBannerToCreate = {
       title: dataForm.title,
-      imageMobile:  bannerImg.mobile[0]?.file,
+      imageMobile: bannerImg.mobile[0]?.file,
       imageDesktop: bannerImg.desktop[0]?.file
     }
 

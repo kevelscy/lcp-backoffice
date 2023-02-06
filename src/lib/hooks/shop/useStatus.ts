@@ -2,9 +2,9 @@ import { useEffect, useState } from 'react'
 // import { getStatus } from 'lib/services/firebase/utils/shop'
 
 export const useGetStatus = () => {
-  const [status, setStatus] = useState(null)
+  const [status] = useState(null)
   const [isLoading, setIsLoading] = useState(true)
-  const [error, setError] = useState({ state: false, message: '' })
+  const [error] = useState({ state: false, message: '' })
 
   useEffect(() => {
     // getStatus()

@@ -9,10 +9,10 @@ export default function ComingSoonPage () {
 }
 
 ComingSoonPage.getLayout = (page: ReactElement) =>
-<AuthLayout>
-  <Head>
-    <title>Proximamente - LCP Admin</title>
-  </Head>
+  <AuthLayout>
+    <Head>
+      <title>Proximamente - LCP Admin</title>
+    </Head>
 
-  {page}
-</AuthLayout>
+    {page}
+  </AuthLayout>

@@ -1,18 +1,19 @@
 import { ToastContainer } from 'react-toastify'
 
 import { useLoadingPage } from 'lib/hooks/useLoadingPage'
+import { useTheme } from 'lib/hooks/useTheme'
 import { AppPropsWithLayout } from 'lib/types'
 
 import { LoadingPage } from 'components/layout/LoadingPage'
+import { GlobalModal } from 'components/layout/Modal/GlobalModal'
 
 import 'styles/tailwind.css'
 import 'react-toastify/dist/ReactToastify.min.css'
-import { GlobalModal } from 'components/layout/Modal/GlobalModal'
 
-
-export default function MyApp({ Component, pageProps }: AppPropsWithLayout) {
+export default function MyApp ({ Component, pageProps }: AppPropsWithLayout) {
   const { isRouteChanging, loadingKey } = useLoadingPage()
   const getLayout = Component.getLayout ?? ((page) => page)
+  const { theme } = useTheme()
 
   return (
     <div className='relative'>
@@ -29,6 +30,7 @@ export default function MyApp({ Component, pageProps }: AppPropsWithLayout) {
         draggable={false}
         closeOnClick
         pauseOnHover
+        theme={theme}
       />
     </div>
   )

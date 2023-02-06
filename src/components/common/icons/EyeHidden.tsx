@@ -1,17 +1,14 @@
-export const EyeHidden = ({
-  width = null,
-  height = null,
-  fill = '#1f2937',
-  classes = 'w-6 h-6',
-}) => (
+import { IIconsBasicProps } from 'lib/types'
+
+export const EyeHidden = ({ classes, fillColor = 'gray', intensityColor = '600' }: IIconsBasicProps) => (
   <svg
     viewBox='0 0 64 64'
-    width={width}
-    height={height}
-    fill={fill}
+    aria-hidden='true'
+    className={`flex-shrink-0 w-6 h-6 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white ${classes} fill-${fillColor}-${intensityColor}`}
+    fill='currentColor'
     xmlns='http://www.w3.org/2000/svg'
-    className={classes}
   >
+
     <g id='Icons1'>
       <g id='Strike'></g>
       <g id='H1'></g>

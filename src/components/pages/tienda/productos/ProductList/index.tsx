@@ -13,7 +13,7 @@ const theadLabel = [
   { label: 'Titulo' },
   { label: 'Descripcción' },
   { label: 'Precio' },
-  { label: 'Acciones' },
+  { label: 'Acciones' }
 ]
 
 export const ProductList = () => {
@@ -52,13 +52,15 @@ export const ProductList = () => {
 
   if (isLoading) return <LoaderPage />
 
-  if (!products.length) return (
-    <EmptyPageContent label='Sin Contenido'>
-      <Link href='/tienda/productos/crear' className='text-blue-500 font-bold'>
+  if (!products.length) {
+    return (
+      <EmptyPageContent label='Sin Contenido'>
+        <Link href='/tienda/productos/crear' className='text-blue-500 font-bold'>
         Crear Nuevo Producto
-      </Link>
-    </EmptyPageContent>
-  )
+        </Link>
+      </EmptyPageContent>
+    )
+  }
 
   return (
     <section className='mt-10'>

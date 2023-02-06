@@ -1,4 +1,4 @@
-/* eslint-disable @next/next/no-img-element */
+
 import { useForm } from 'react-hook-form'
 import { useRouter } from 'next/router'
 import { useEffect, useState } from 'react'
@@ -8,8 +8,8 @@ import { handleFetchErrors } from 'lib/utils/handleFetchErrors'
 import { updateProductById } from 'lib/services/shop/products'
 import { IProduct, IProductToUpdate } from 'lib/types'
 
-import { InputBasic, InputSelectBasic } from 'components/common/inputs'
-import { Toggle } from 'components/common/inputs'
+import { InputBasic, InputSelectBasic, Toggle } from 'components/common/inputs'
+
 import { Button } from 'components/common/Button'
 import { UploadImage } from './UploadImage'
 import { slugify } from 'lib/utils/slugify'
@@ -36,8 +36,8 @@ export const FormEditProduct = ({ id, title, image, slug, category, description,
 
     const productToUpdate: IProductToUpdate = {
       ...dataForm,
-      slug: slug,
-      image: imageToUpload ? imageToUpload[0]?.file : null,
+      slug,
+      image: imageToUpload ? imageToUpload[0]?.file : null
     }
 
     const { error } = await updateProductById(id, productToUpdate)
@@ -112,6 +112,7 @@ export const FormEditProduct = ({ id, title, image, slug, category, description,
           rules={{ required: false }}
           placeholder='Titulo'
           defaultValue={title}
+          errors={errors}
         />
 
         <div className='w-full'>
@@ -128,7 +129,7 @@ export const FormEditProduct = ({ id, title, image, slug, category, description,
             placeholder='Slug del Artículo'
             defaultValue={slug}
             value={slugify(titleWatcher || '')}
-            className='w-full px-3 py-1 my-2 text-base text-gray-700 bg-gray-100 border border-gray-300 rounded outline-none appearance-none bg-opacity-50 focus:border-blue-500 focus:bg-white focus:ring-2 focus:ring-blue-300 leading-8 transition-colors duration-200 ease-in-out'            
+            className='w-full px-3 py-1 my-2 text-base text-gray-700 bg-gray-100 border border-gray-300 rounded outline-none appearance-none bg-opacity-50 focus:border-blue-500 focus:bg-white focus:ring-2 focus:ring-blue-300 leading-8 transition-colors duration-200 ease-in-out'
           />
         </div>
       </section>
@@ -143,6 +144,7 @@ export const FormEditProduct = ({ id, title, image, slug, category, description,
           placeholder='Precio'
           defaultValue={price}
           onKeyPress={handleOnlyNumbers}
+          errors={errors}
         />
 
         <InputSelectBasic
@@ -169,6 +171,7 @@ export const FormEditProduct = ({ id, title, image, slug, category, description,
           rules={{ required: false }}
           placeholder='Descripción'
           defaultValue={description}
+          errors={errors}
         />
       </section>
 

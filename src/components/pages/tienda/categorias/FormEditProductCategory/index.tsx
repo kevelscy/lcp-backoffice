@@ -1,4 +1,4 @@
-/* eslint-disable @next/next/no-img-element */
+
 import { useForm } from 'react-hook-form'
 import { useRouter } from 'next/router'
 import { useState } from 'react'
@@ -53,6 +53,7 @@ export const FormEditProductCategory = ({ id, title, slug, description }: IProdu
           rules={{ required: false }}
           placeholder='Titulo'
           defaultValue={title}
+          errors={errors}
         />
 
         <div className='w-full'>
@@ -69,7 +70,7 @@ export const FormEditProductCategory = ({ id, title, slug, description }: IProdu
             placeholder='Slug del Artículo'
             defaultValue={slug}
             value={slugify(titleWatcher || slug || '')}
-            className='w-full px-3 py-1 my-2 text-base text-gray-700 bg-gray-100 border border-gray-300 rounded outline-none appearance-none bg-opacity-50 focus:border-blue-500 focus:bg-white focus:ring-2 focus:ring-blue-300 leading-8 transition-colors duration-200 ease-in-out'            
+            className='w-full px-3 py-1 my-2 text-base text-gray-700 bg-gray-100 border border-gray-300 rounded outline-none appearance-none bg-opacity-50 focus:border-blue-500 focus:bg-white focus:ring-2 focus:ring-blue-300 leading-8 transition-colors duration-200 ease-in-out'
           />
         </div>
       </section>

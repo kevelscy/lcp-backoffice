@@ -15,12 +15,12 @@ export default function EventosPage () {
   // )
 }
 
-EventosPage.getLayout = (page: ReactElement) =>
-<AuthLayout>
-  <Head>
-    <title>LCP Admin</title>
-    <link rel='icon' href='/favicon.ico' />
-  </Head>
+EventosPage.getLayout = (page: ReactElement) => (
+  <AuthLayout>
+    <Head>
+      <title>Eventos - LCP Admin</title>
+    </Head>
 
-  {page}
-</AuthLayout>
+    {page}
+  </AuthLayout>
+)
