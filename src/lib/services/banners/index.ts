@@ -95,7 +95,7 @@ export const uploadImageOfBannerById = async (id: string, type: 'mobile' | 'desk
 
   const options: RequestInit = { method: 'PUT', body: formData }
 
-  const res = await fetch(`/api/banners/${id}/upload-image`, options)
+  const res = await fetch(`/api/banners/${id}/upload-image-${type}`, options)
   const { data, error } = await res.json()
 
   if (error) {

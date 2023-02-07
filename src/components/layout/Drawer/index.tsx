@@ -51,8 +51,8 @@ export const Drawer = () => {
         <ProfileIcon />
 
         <div className='mt-2 text-center'>
-          <span>{ auth.firstName } { auth.lastName }</span> <br />
-          <small className='select-none'>LCP Backoffice</small>
+          <span className='dark:text-white'>{ auth.firstName } { auth.lastName }</span> <br />
+          <small className='select-none dark:text-gray-200'>LCP Backoffice</small>
         </div>
       </section>
 

@@ -54,7 +54,7 @@ export const FormEditBanner = ({ id, title, image }: IBanner) => {
       }
 
       if (imageToUpload.mobile[0]?.file?.size >= config.FILE_LIMITS.BANNERS.IMAGE_SIZE) {
-        toast('La imagen para mobile debe pesar menos de 3MB', { type: 'warning' })
+        toast('La imagen para mobile debe pesar menos de 2MB', { type: 'warning' })
         setIsLoading({ type: null, status: false })
         return
       }
@@ -83,7 +83,7 @@ export const FormEditBanner = ({ id, title, image }: IBanner) => {
       }
 
       if (imageToUpload.desktop[0]?.file?.size >= config.FILE_LIMITS.BANNERS.IMAGE_SIZE) {
-        toast('La imagen para desktop debe pesar menos de 3MB', { type: 'warning' })
+        toast('La imagen para desktop debe pesar menos de 2MB', { type: 'warning' })
         setIsLoading({ type: null, status: false })
         return
       }

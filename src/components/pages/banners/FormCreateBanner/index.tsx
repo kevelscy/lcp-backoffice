@@ -48,13 +48,13 @@ export const FormCreateBanner = () => {
     }
 
     if (bannerImg.mobile[0]?.file?.size >= config.FILE_LIMITS.BANNERS.IMAGE_SIZE) {
-      toast('La imagen para mobile debe pesar menos de 3MB', { type: 'warning' })
+      toast('La imagen para mobile debe pesar menos de 2MB', { type: 'warning' })
       setIsLoading({ type: null, status: false })
       return
     }
 
     if (bannerImg.desktop[0]?.file?.size >= config.FILE_LIMITS.BANNERS.IMAGE_SIZE) {
-      toast('La imagen para desktop debe pesar menos de 3MB', { type: 'warning' })
+      toast('La imagen para desktop debe pesar menos de 2MB', { type: 'warning' })
       setIsLoading({ type: null, status: false })
       return
     }
@@ -104,7 +104,7 @@ export const FormCreateBanner = () => {
 
   if (isLoading.type === 'UPDATE_BANNER_TITLE' && isLoading.status) {
     return (
-      <div className='w-full h-screen-[61vh] flex flex-col items-center justify-center'>
+      <div className='w-full h-[60vh] flex flex-col items-center justify-center'>
         <span className='text-2xl font-black dark:text-white'>Creando banner</span>
         <Spinner classes='mt-1' />
       </div>
@@ -113,7 +113,7 @@ export const FormCreateBanner = () => {
 
   if (isLoading.type === 'UPLOADING_IMAGE_MOBILE' && isLoading.status) {
     return (
-      <div className='w-full h-screen-[61vh] flex flex-col items-center justify-center'>
+      <div className='w-full h-[60vh] flex flex-col items-center justify-center'>
         <span className='text-2xl font-black dark:text-white'>Subiendo imagen mobile</span>
         <Spinner classes='mt-1' />
       </div>
@@ -122,7 +122,7 @@ export const FormCreateBanner = () => {
 
   if (isLoading.type === 'UPLOADING_IMAGE_DESKTOP' && isLoading.status) {
     return (
-      <div className='w-full h-screen-[61vh] flex flex-col items-center justify-center'>
+      <div className='w-full h-[60vh] flex flex-col items-center justify-center'>
         <span className='text-2xl font-black dark:text-white'>Subiendo imagen desktop</span>
         <Spinner classes='mt-1' />
       </div>

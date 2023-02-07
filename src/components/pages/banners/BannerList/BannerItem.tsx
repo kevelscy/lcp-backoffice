@@ -37,11 +37,11 @@ export const BannerItem = ({ id, title, image, refreshBanners, setIsLoading }: I
     <>
       <Modal Portal={Portal} hide={hide}>
         <div className='w-full flex gap-x-2 justify-start items-end pt-2 text-sm'>
-          <Button onClick={hide} classes='w-full text-black'>
+          <Button onClick={hide} classes='w-full text-white'>
             Cancelar
           </Button>
 
-          <Button onClick={deleteBanner} classes='w-full text-black'>
+          <Button onClick={deleteBanner} classes='w-full text-white'>
             Confirmar
           </Button>
         </div>

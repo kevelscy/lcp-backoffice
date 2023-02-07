@@ -36,7 +36,7 @@ export const FormCreateDevotional = () => {
     }
 
     if (file.size > config.FILE_LIMITS.DEVOTIONALS.FILE_SIZE) {
-      toast('Solo archivos menos de 10MB', { type: 'error' })
+      toast('Solo archivos menos de 5MB', { type: 'error' })
       setIsLoading(false)
       return
     }

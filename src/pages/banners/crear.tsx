@@ -13,7 +13,7 @@ export const CreateBannersPage: PageWithLayout = () => {
       <p className='text-sm mt-4 font-bold dark:text-white'>Recuerda lo siguiente:</p>
 
       <ul className='list-disc mt-1 pl-3.5 text-sm'>
-        <li className='dark:text-gray-100'>Las imagenes no deben pesar mas de <span className='font-bold'>3MB</span></li>
+        <li className='dark:text-gray-100'>Las imagenes no deben pesar mas de <span className='font-bold'>2MB</span></li>
         <li className='dark:text-gray-100'>La imagen para mobile debe tener estas dimensiones <span className='font-bold'>(540 x 1080)</span></li>
         <li className='dark:text-gray-100'>La imagen para desktop debe tener estas dimensiones <span className='font-bold'>(1920 x 1080)</span></li>
       </ul>
