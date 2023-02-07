@@ -7,39 +7,39 @@ module.exports = {
   },
   async rewrites () {
     return [
-        {
-          source: '/api/:path*',
-          // destination: `${process.env.API_URL}/api/:path*`
-          destination: `http://localhost:8000/api/:path*`
-        },
-        {
-          source: '/',
-          destination: '/dashboard'
-        },
-        {
-          source: '/tienda/:path*',
-          destination: '/proximamente',
-        },
-        {
-          source: '/multimedia',
-          destination: '/proximamente',
-        },
-        {
-          source: '/usuarios',
-          destination: '/proximamente',
-        },
-        {
-          source: '/eventos',
-          destination: '/proximamente',
-        },
-        {
-          source: '/devocionales',
-          destination: '/proximamente',
-        },
-        {
-          source: '/articulos',
-          destination: '/proximamente',
-        },
-      ]
+      {
+        source: '/api/:path*',
+        destination: `${process.env.API_URL}/api/:path*`
+        // destination: `http://localhost:8000/api/:path*`
+      },
+      {
+        source: '/',
+        destination: '/dashboard'
+      },
+      {
+        source: '/tienda/:path*',
+        destination: '/proximamente'
+      },
+      {
+        source: '/multimedia',
+        destination: '/proximamente'
+      },
+      {
+        source: '/usuarios',
+        destination: '/proximamente'
+      },
+      {
+        source: '/eventos',
+        destination: '/proximamente'
+      },
+      {
+        source: '/devocionales',
+        destination: '/proximamente'
+      },
+      {
+        source: '/articulos',
+        destination: '/proximamente'
+      }
+    ]
   }
 }
