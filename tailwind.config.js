@@ -14,6 +14,9 @@ module.exports = {
       sans: ['Josefin Sans', ...defaultTheme.fontFamily.sans]
     },
     extend: {
+      colors: {
+        'lcp-primary': '#1e478d'
+      },
       height: {
         'screen-80': '80vh',
         'screen-70': '70vh'
