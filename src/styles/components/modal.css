@@ -59,28 +59,17 @@
 .modal-open .modal-dialog {
   transform: translateY(0);
 }
-
-.modal .modal-dialog {
-  margin: 1.75rem auto;
-  width: 90%;
-  max-width: 500px;
-  background: #fff;
-  background-clip: padding-box;
-  border: 3px solid rgba(0, 0, 0, 0.2);
-  transform: translateY(-50%);
-  transition: transform 0.3s ease-out;
-}
-
-
 /* REACT PORTAL COOL */
 
 .modal .modal-dialog {
   margin: 1.75rem auto;
   width: 90%;
   max-width: 500px;
-  background: #fff;
-  background-clip: padding-box;
-  border: 3px solid rgba(0, 0, 0, 0.2);
+  background: #ffffffb3;
+  /* background-clip: padding-box; */
+  /* border: 3px solid rgba(0, 0, 0, 0.2); */
+  transform: translateY(-50%);
+  transition: transform 0.3s ease-out;
 }
 
 .modal .modal-title {

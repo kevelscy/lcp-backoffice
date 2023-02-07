@@ -37,11 +37,11 @@ export const BannerItem = ({ id, title, image, refreshBanners, setIsLoading }: I
     <>
       <Modal Portal={Portal} hide={hide}>
         <div className='w-full flex gap-x-2 justify-start items-end pt-2 text-sm'>
-          <Button onClick={hide} classes='w-full'>
+          <Button onClick={hide} classes='w-full text-black'>
             Cancelar
           </Button>
 
-          <Button onClick={deleteBanner} classes='w-full'>
+          <Button onClick={deleteBanner} classes='w-full text-black'>
             Confirmar
           </Button>
         </div>
@@ -51,7 +51,7 @@ export const BannerItem = ({ id, title, image, refreshBanners, setIsLoading }: I
         <h6 className='font-bold text-lg dark:text-white'>{title}</h6>
 
         <section className='flex flex-col sm:flex-row justify-between items-center gap-x-4 mt-2'>
-          <div>
+          <div className='w-1/2'>
             <label htmlFor='bannerMobile' className='font-bold text-sm dark:text-[#a1a1a1]'>
               Mobile
             </label>
@@ -66,7 +66,7 @@ export const BannerItem = ({ id, title, image, refreshBanners, setIsLoading }: I
             />
           </div>
 
-          <div>
+          <div className='w-1/2'>
             <label htmlFor='bannerDesktop' className='font-bold text-sm dark:text-[#a1a1a1]'>
               Desktop
             </label>

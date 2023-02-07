@@ -10,16 +10,10 @@ export enum EBannerType {
 
 export interface IBannerToCreate {
   title: string
-  imageMobile: FileList
-  imageDesktop: FileList
 }
 
 export interface IBannerToUpdate {
   title: string
-  image: {
-    mobile: FileList
-    desktop: FileList
-  }
 }
 
 export interface IBanner {

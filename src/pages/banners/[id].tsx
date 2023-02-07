@@ -31,7 +31,7 @@ export const BannerDetailPage: PageWithLayout = () => {
 
   return (
     <div>
-      <h4 className='text-xl font-bold'>Editar Banner { banner.title }</h4>
+      <h4 className='text-xl font-bold dark:text-white'>Editar Banner { banner.title }</h4>
 
       <FormEditBanner {...banner} />
     </div>

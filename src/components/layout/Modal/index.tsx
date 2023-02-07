@@ -8,12 +8,12 @@ export const Modal = ({ children, Portal, hide }) => {
     <Portal>
       <div
         id='modal'
-        className='modal'
+        className='modal bg-white-600 bg-clip-padding backdrop-filter backdrop-blur-md bg-opacity-20'
         onClick={handleClickBackdrop}
         tabIndex={-1}
       >
         <div
-          className='modal-dialog'
+          className='modal-dialog dark:rounded-md dark:bg-clip-padding dark:backdrop-filter dark:backdrop-blur-3xl dark:bg-opacity-100 dark:border dark:border-gray-100'
           role='dialog'
           aria-labelledby='modal-label'
           aria-modal='true'

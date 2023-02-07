@@ -1,15 +1,21 @@
 
 import { AddImage } from 'components/common/icons'
-import ImageUploading from 'react-images-uploading'
+import ImageUploading, { ImageListType } from 'react-images-uploading'
 
-export const UploadImage = ({ imageToUpload, onChange }) => {
+interface UploadImageProps {
+  type: 'mobile' | 'desktop'
+  onChange: (image: ImageListType, addUpdateIndex?: number[], type?: 'mobile' | 'desktop') => void
+  imageToUpload: ImageListType
+}
+
+export const UploadImage = ({ imageToUpload, onChange, type }: UploadImageProps) => {
   return (
-    <div className='mt-2'>
-      <label className='block font-medium text-gray-700'>Imagen del Banner</label>
+    <div className='mt-2 w-full'>
+      <label className='block font-semibold text-gray-700 dark:text-white'>Imagen {type} del banner</label>
 
       <ImageUploading
         value={imageToUpload}
-        onChange={onChange}
+        onChange={(imageListType, addUpdatedIndex) => onChange(imageListType, addUpdatedIndex, type)}
         dataURLKey='data_url'
         acceptType={['webp', 'png']}
       >
@@ -34,15 +40,6 @@ export const UploadImage = ({ imageToUpload, onChange }) => {
                           >
                           Cambiar
                           </span>
-
-                          <span
-                            className='ml-2 cursor-pointer text-red-400 hover:text-red-700'
-                            onClick={() => onImageRemove(index)}
-                          >
-                          Eliminar
-                          </span>
-
-                          <br />
                         </div>
                       </div>
                     ))
@@ -61,7 +58,7 @@ export const UploadImage = ({ imageToUpload, onChange }) => {
                     Sube una imagen
                     </span>
 
-                    <span>o arrastra y suelta una imagen</span>
+                    <span className='dark:text-white'>o arrastra y suelta una imagen</span>
                   </div>
                 </>
             }

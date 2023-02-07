@@ -35,7 +35,7 @@ export const FormCreateArticle = () => {
   const router = useRouter()
 
   const onChange = (imageList, addUpdateIndex) => {
-    console.log(imageList[0], addUpdateIndex)
+    // console.log(imageList[0], addUpdateIndex)
     setImageToUpload(imageList)
   }
 
