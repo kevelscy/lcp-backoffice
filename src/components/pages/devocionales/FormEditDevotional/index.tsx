@@ -3,7 +3,7 @@ import { useForm } from 'react-hook-form'
 import { useRouter } from 'next/router'
 import { useState } from 'react'
 
-import { IBannerToUpdate, IDevotional } from 'lib/types'
+import { IBannerToUpdate, IDevotional, IDevotionalToUpdate } from 'lib/types'
 import { handleFetchErrors } from 'lib/utils/handleFetchErrors'
 import { updateBannerById } from 'lib/services/banners'
 
@@ -11,7 +11,7 @@ import { InputBasic } from 'components/common/inputs/InputBasic'
 import { Button } from 'components/common/Button'
 
 export const FormEditDevotional = ({ id, title, file }: IDevotional) => {
-  const { register, handleSubmit } = useForm<IBannerToUpdate>()
+  const { register, handleSubmit } = useForm<IDevotionalToUpdate>()
   const [imageToUpload] = useState(null)
   const [, setIsLoading] = useState(false)
   const router = useRouter()
@@ -21,24 +21,24 @@ export const FormEditDevotional = ({ id, title, file }: IDevotional) => {
   //   setImageToUpload(imageList)
   // }
 
-  const onSubmit = async (dataForm: IBannerToUpdate) => {
-    setIsLoading(true)
+  const onSubmit = async (dataForm: IDevotionalToUpdate) => {
+    // setIsLoading(true)
 
-    const bannerToUpdate: IBannerToUpdate = {
-      title: dataForm.title,
-      image: imageToUpload ? imageToUpload[0]?.file : null
-    }
+    // const bannerToUpdate: IDevotionalToUpdate = {
+    //   title: dataForm.title,
+    //   file: null
+    // }
 
-    const { error } = await updateBannerById(id, bannerToUpdate)
+    // const { error } = await updateBannerById(id, bannerToUpdate)
 
-    if (error) {
-      setIsLoading(false)
-      handleFetchErrors(error.status, error.message)
-      return
-    }
+    // if (error) {
+    //   setIsLoading(false)
+    //   handleFetchErrors(error.status, error.message)
+    //   return
+    // }
 
-    setIsLoading(false)
-    router.push('/banners')
+    // setIsLoading(false)
+    // router.push('/banners')
   }
 
   return (
